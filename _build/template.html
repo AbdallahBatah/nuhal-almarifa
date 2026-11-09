@@ -1,0 +1,1608 @@
+<title>نُهال المعرفة للتدريب والتطوير</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="نُهال المعرفة للتدريب والتطوير — مركز تدريب مرخّص من KHDA في دبي. برامج في القيادة الحكومية والذكاء الاصطناعي والابتكار والمالية الحكومية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: "المنهل والنمو" — asymmetric RTL grid; the logo's rising gold arrow and leaf shapes become the recurring marks (leaf-cut icon tiles, offset teal/gold photo frames, a gold growth line). Real catalog data carries the pages. */
+:root{
+  --ink:#005580;          /* logo navy */
+  --heading:#0A3B57;
+  --leaf:#4A9698;         /* logo teal */
+  --gold:#DDAE4A;         /* logo gold */
+  --gold-deep:#B8862A;
+  --night:#0B2A3A;        /* deep band, stays dark in both themes */
+  --night-2:#0F3647;
+  --on-night:#E4EFEF;
+  --on-night-muted:#9FBDC2;
+  --paper:#F5F8F7;
+  --surface:#FFFFFF;
+  --fg:#17323E;
+  --muted:#5A717A;
+  --line:#D9E4E3;
+  --leaf-soft:#E4F1F0;
+  --ink-soft:#E3EDF4;
+  --gold-soft:#FBF2DE;
+  --on-ink:#FFFFFF;
+  --shadow:0 24px 50px -28px rgba(6,45,66,.35);
+  --li:#005580; --lt:#4A9698; --lg:#DDAE4A;
+  --f-display:"Alexandria","IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,"Noto Sans Arabic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#6DB8DA; --heading:#EAF4F5; --leaf:#62B4B5; --gold:#E6BC5F; --gold-deep:#E6BC5F;
+  --night:#071822; --night-2:#0C2532; --on-night:#E4EFEF; --on-night-muted:#93B0B6;
+  --paper:#0A1B23; --surface:#0F2530; --fg:#DCE9EA; --muted:#97AFB5; --line:#1E3B47;
+  --leaf-soft:#123638; --ink-soft:#11303F; --gold-soft:#2A2414; --on-ink:#04202D;
+  --shadow:0 24px 50px -28px rgba(0,0,0,.7);
+  --li:#EAF4F5; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#6DB8DA; --heading:#EAF4F5; --leaf:#62B4B5; --gold:#E6BC5F; --gold-deep:#E6BC5F;
+  --night:#071822; --night-2:#0C2532; --on-night:#E4EFEF; --on-night-muted:#93B0B6;
+  --paper:#0A1B23; --surface:#0F2530; --fg:#DCE9EA; --muted:#97AFB5; --line:#1E3B47;
+  --leaf-soft:#123638; --ink-soft:#11303F; --gold-soft:#2A2414; --on-ink:#04202D;
+  --shadow:0 24px 50px -28px rgba(0,0,0,.7);
+  --li:#EAF4F5; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--surface)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{font-family:var(--f-display);color:var(--heading);margin:0;line-height:1.3;text-wrap:balance;font-weight:700}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.lucide{width:1.15em;height:1.15em;stroke-width:1.8;flex:none}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.wrap{max-width:1240px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.section{padding-block:88px}
+.section.tight{padding-block:64px}
+.on-surface{background:var(--surface)}
+.on-dark{--li:#FFFFFF; background:var(--night);color:var(--on-night)}
+.on-dark h1,.on-dark h2,.on-dark h3,.on-dark h4{color:#fff}
+
+/* ---------- type ---------- */
+.kicker{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-size:13.5px;font-weight:600;color:var(--leaf);letter-spacing:.01em}
+.kicker::before{content:"";width:22px;height:10px;background:var(--gold);border-radius:0 10px 0 10px;flex:none}
+.on-dark .kicker{color:var(--gold)}
+.on-dark .kicker::before{background:var(--leaf)}
+.h2{font-size:clamp(26px,3.2vw,38px);font-weight:700;margin-top:10px}
+.lead{font-size:18px;color:var(--muted);max-width:62ch;margin-top:14px}
+.on-dark .lead{color:var(--on-night-muted)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap;margin-bottom:40px}
+.sec-head > div{max-width:720px;min-width:0}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:6px;font-family:var(--f-display);font-weight:600;font-size:15px;line-height:1.2;transition:background .2s,color .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn .lucide{transition:transform .25s}
+.btn:hover .lucide.go{transform:translateX(-4px)}
+.btn-primary{background:var(--ink);color:var(--on-ink)}
+.btn-primary:hover{background:var(--heading)}
+:root[data-theme="dark"] .btn-primary:hover{background:var(--leaf)}
+.btn-gold{background:var(--gold);color:#2B1F05}
+.btn-gold:hover{background:#E9BF62}
+.btn-line{border:1.5px solid var(--line);color:var(--heading);background:var(--surface)}
+.btn-line:hover{border-color:var(--leaf);color:var(--leaf)}
+.on-dark .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.on-dark .btn-line:hover{border-color:var(--gold);color:var(--gold)}
+.btn-sm{padding:9px 14px;font-size:14px}
+.link-go{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:600;color:var(--ink);font-size:15px}
+.link-go:hover .lucide{transform:translateX(-4px)}
+.link-go .lucide{transition:transform .25s}
+.on-dark .link-go{color:var(--gold)}
+
+/* ---------- leaf tiles (icon marks) ---------- */
+.leaf{width:46px;height:46px;display:grid;place-items:center;border-radius:4px 18px 4px 18px;flex:none;font-size:20px}
+.leaf.sm{width:38px;height:38px;font-size:17px;border-radius:3px 14px 3px 14px}
+.leaf.lg{width:58px;height:58px;font-size:25px;border-radius:5px 22px 5px 22px}
+.t-ink{background:var(--ink-soft);color:var(--ink)}
+.t-leaf{background:var(--leaf-soft);color:var(--leaf)}
+.t-gold{background:var(--gold-soft);color:var(--gold-deep)}
+.on-dark .t-ink{background:rgba(109,184,218,.14);color:#8CCBE8}
+.on-dark .t-leaf{background:rgba(98,180,181,.16);color:#7FCBCB}
+.on-dark .t-gold{background:rgba(230,188,95,.16);color:var(--gold)}
+
+/* ---------- top bar & header ---------- */
+.topbar{background:var(--night);color:var(--on-night-muted);font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:8px 24px;padding-block:8px;flex-wrap:wrap}
+.topbar .grp{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.topbar .it{display:inline-flex;align-items:center;gap:7px}
+.topbar .it .lucide{color:var(--gold)}
+.topbar b{color:var(--on-night);font-weight:600}
+
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav-row{display:flex;align-items:center;gap:20px;height:80px}
+.brand{display:flex;align-items:center;flex:none}
+.brand svg{height:58px;width:auto}
+.menu{display:flex;align-items:stretch;gap:2px;margin-inline:auto;height:100%}
+.menu > li{display:flex;align-items:stretch}
+.menu .top{display:flex;align-items:center;gap:6px;padding:0 14px;font-family:var(--f-display);font-weight:500;font-size:15px;color:var(--heading);position:relative;transition:color .2s}
+.menu .top .lucide{width:15px;height:15px;transition:transform .25s;color:var(--muted)}
+.menu .top::after{content:"";position:absolute;inset-inline:14px;bottom:-1px;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .25s;border-radius:2px 2px 0 0}
+.menu .top:hover{color:var(--leaf)}
+.menu .top.active::after,.menu .top[aria-expanded="true"]::after{transform:scaleX(1)}
+.menu .top[aria-expanded="true"] .lucide{transform:rotate(180deg)}
+.nav-cta{display:flex;gap:10px;align-items:center;flex:none}
+.burger{display:none;width:46px;height:46px;border:1.5px solid var(--line);border-radius:6px;place-items:center;font-size:22px;color:var(--heading)}
+
+/* mega */
+.mega{position:absolute;inset-inline:0;top:100%;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 40px 70px -40px rgba(6,45,66,.45);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility 0s .2s}
+.mega.open{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .2s}
+.mega .wrap{display:grid;gap:40px;padding-block:32px 36px}
+.mega-programs .wrap{grid-template-columns:1.35fr 1fr .95fr}
+.mega-about .wrap{grid-template-columns:1.2fr 1fr 1fr}
+.mega-exp .wrap{grid-template-columns:1.1fr 1fr 1fr}
+.mega h4{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.01em;padding-bottom:12px;margin-bottom:8px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.mega h4 span{color:var(--gold-deep);font-family:var(--f-display)}
+.mlinks{display:grid;gap:2px}
+.mlinks.two{grid-template-columns:1fr 1fr;column-gap:12px}
+.mlink{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:9px 10px;border-radius:8px;transition:background .15s}
+.mlink:hover{background:var(--paper)}
+.mlink b{display:block;font-family:var(--f-display);font-weight:600;font-size:14.5px;color:var(--heading);line-height:1.4}
+.mlink small{display:block;font-size:12.5px;color:var(--muted);line-height:1.5}
+.mfeature{position:relative;border-radius:6px;overflow:hidden;min-height:250px;display:flex;align-items:flex-end;color:#fff}
+.mfeature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mfeature::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,30,42,.92) 10%,rgba(7,30,42,.15) 70%);z-index:1}
+.mfeature .in{position:relative;z-index:2;padding:20px;display:grid;gap:8px}
+.mfeature .in b{font-family:var(--f-display);font-size:18px;line-height:1.4}
+.mfeature .in small{color:#cfe2e3;font-size:13px}
+.mticket{background:var(--night);color:var(--on-night);border-radius:6px;padding:20px;display:grid;gap:12px;position:relative;overflow:hidden}
+.mticket .lab{font-size:12.5px;color:var(--gold);font-family:var(--f-display);font-weight:600}
+.mticket b{font-family:var(--f-display);font-size:16.5px;line-height:1.5;color:#fff}
+.mticket .meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--on-night-muted)}
+.mticket .meta span{display:inline-flex;gap:6px;align-items:center}
+.mfacts{display:grid;gap:14px}
+.mfact{display:flex;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.mfact b{font-family:var(--f-display);font-size:28px;color:var(--ink);font-weight:700;min-width:56px}
+.mfact span{font-size:14px;color:var(--muted)}
+
+/* drawer */
+.drawer{position:fixed;inset:0;z-index:80;display:none}
+.drawer.open{display:block}
+.drawer .scrim{position:absolute;inset:0;background:rgba(5,25,35,.55)}
+.drawer .panel{position:absolute;top:0;bottom:0;right:0;width:min(400px,100%);background:var(--surface);overflow-y:auto;padding:calc(16px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 20px;display:flex;flex-direction:column;gap:8px}
+.drawer .dhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.drawer .dhead svg{height:50px;width:auto}
+.dlink,.dacc>button{display:flex;width:100%;justify-content:space-between;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);font-family:var(--f-display);font-weight:600;font-size:16px;color:var(--heading);text-align:start}
+.dacc>button .lucide{transition:transform .2s}
+.dacc>button[aria-expanded="true"] .lucide{transform:rotate(180deg)}
+.dacc .sub{display:grid;gap:2px;padding:8px 0 12px}
+.dacc .sub a{display:flex;gap:10px;align-items:center;padding:8px 6px;font-size:14.5px;color:var(--fg);border-radius:6px}
+.dacc .sub a:hover{background:var(--paper)}
+
+/* ---------- pages ---------- */
+.page{display:none}
+.page.show{display:block;animation:pagein .45s ease both}
+@keyframes pagein{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- HOME hero ---------- */
+.hero{position:relative;background:var(--surface);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(0deg,var(--paper),transparent);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center;padding-block:64px 96px}
+.hero-copy{min-width:0}
+.badge-line{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--muted);background:var(--paper)}
+.badge-line .dot{width:26px;height:26px;border-radius:50%;background:var(--leaf);color:#fff;display:grid;place-items:center;font-size:14px}
+.badge-line b{color:var(--heading);font-weight:600}
+.hero h1{font-size:clamp(38px,5.4vw,66px);font-weight:800;line-height:1.18;margin-top:22px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--leaf);position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;inset-inline:0;bottom:-.12em;width:100%;height:.32em;overflow:visible}
+.hero .lead{font-size:18.5px;margin-top:22px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.hero-meta div{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.hero-meta .lucide{color:var(--gold-deep);font-size:18px}
+
+.media{position:relative;aspect-ratio:1/0.92;width:100%;max-width:100%}
+.media .blk{position:absolute}
+.media .b-gold{top:0;left:0;width:40%;height:44%;background:var(--gold)}
+.media .b-leaf{bottom:0;right:10%;width:46%;height:32%;background:var(--leaf)}
+.media .photo{position:absolute;top:7%;right:0;bottom:9%;left:8%;overflow:hidden;background:var(--line)}
+.media .photo img{width:100%;height:100%;object-fit:cover}
+.media .arrow{position:absolute;top:-6%;right:-3%;width:34%;height:auto;z-index:3;overflow:visible;pointer-events:none}
+.media .arrow path{fill:none;stroke:var(--gold);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.ticket{position:absolute;left:0;bottom:2%;z-index:4;width:min(340px,86%);background:var(--surface);border-radius:6px;box-shadow:var(--shadow);padding:18px 18px 16px;display:grid;gap:10px;border-top:4px solid var(--gold)}
+.ticket .row1{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ticket .lab{font-family:var(--f-display);font-size:12.5px;font-weight:600;color:var(--leaf);display:inline-flex;gap:6px;align-items:center}
+.ticket b{font-family:var(--f-display);font-size:15.5px;line-height:1.5;color:var(--heading)}
+.ticket .meta{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.ticket .meta span{display:inline-flex;align-items:center;gap:6px}
+.ticket .meta .lucide{color:var(--gold-deep)}
+@media (prefers-reduced-motion:no-preference){
+  .media .arrow path.draw{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.4s .35s cubic-bezier(.6,0,.2,1) forwards}
+  .media .arrow path.head{opacity:0;animation:fade .4s 1.55s forwards}
+  .ticket{animation:rise .6s .9s both}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@keyframes rise{from{transform:translateY(14px);opacity:.0}to{transform:none;opacity:1}}
+
+/* status pills */
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;font-family:var(--f-display);white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.st-open{background:var(--leaf-soft);color:var(--leaf)}
+.st-live{background:var(--gold-soft);color:var(--gold-deep)}
+.st-done{background:var(--paper);color:var(--muted);border:1px solid var(--line)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border:1px solid var(--line);border-radius:6px;margin-top:-56px;position:relative;z-index:2;box-shadow:var(--shadow)}
+.stat{padding:26px 28px;display:grid;gap:4px;border-inline-start:1px solid var(--line);min-width:0}
+.stat:first-child{border-inline-start:0}
+.stat b{font-family:var(--f-display);font-size:44px;font-weight:700;color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.stat b small{font-size:18px;color:var(--gold-deep);margin-inline-start:4px}
+.stat span{font-size:14.5px;color:var(--muted);line-height:1.5}
+
+/* ledger (upcoming) */
+.ledger{border-top:2px solid var(--heading)}
+.lrow{display:grid;grid-template-columns:104px minmax(0,1fr) 230px 120px 118px;gap:22px;align-items:center;padding:18px 6px;border-bottom:1px solid var(--line);transition:background .15s}
+.lrow:hover{background:var(--surface)}
+.dstamp{font-family:var(--f-display);line-height:1.15;font-variant-numeric:tabular-nums}
+.dstamp b{display:block;font-size:24px;color:var(--heading);font-weight:700}
+.dstamp span{font-size:13px;color:var(--muted)}
+.lrow h3{font-size:16.5px;font-weight:600;line-height:1.55}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--fg);line-height:1.4}
+.chip .leaf{width:28px;height:28px;font-size:14px;border-radius:2px 10px 2px 10px}
+.city{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--muted)}
+.city .lucide{color:var(--gold-deep)}
+
+/* tracks */
+.tracks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.track{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:14px;text-align:start;transition:border-color .2s,transform .25s,box-shadow .25s;position:relative;min-width:0}
+.track:hover{border-color:var(--leaf);transform:translateY(-3px);box-shadow:var(--shadow)}
+.track h3{font-size:17.5px;line-height:1.5}
+.track p{font-size:14px;color:var(--muted);line-height:1.7}
+.track .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:14px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--muted)}
+.track .foot b{font-family:var(--f-display);color:var(--heading);font-size:15px}
+.track .go{color:var(--leaf);transition:transform .25s}
+.track:hover .go{transform:translateX(-4px)}
+.track.feature{grid-column:span 2;background:var(--night);border-color:var(--night);color:var(--on-night);--li:#fff;overflow:hidden}
+.track.feature h3{color:#fff;font-size:22px}
+.track.feature p{color:var(--on-night-muted);font-size:15px;max-width:46ch}
+.track.feature .foot{border-color:rgba(255,255,255,.16);color:var(--on-night-muted)}
+.track.feature .foot b{color:#fff}
+.track.feature .go{color:var(--gold)}
+.track.feature .mark-bg{position:absolute;left:-30px;bottom:-40px;width:230px;opacity:.13;pointer-events:none}
+.track.feature .tags{display:flex;gap:8px;flex-wrap:wrap}
+.track.feature .tags span{font-size:12.5px;padding:4px 10px;background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#d6e7e8}
+
+/* AI band */
+.ai-band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.ai-media{position:relative;aspect-ratio:4/3.1}
+.ai-media .frame{position:absolute;top:-16px;left:-16px;width:56%;height:62%;border:2px solid var(--gold)}
+.ai-media img{position:relative;width:100%;height:100%;object-fit:cover}
+.ai-media .count{position:absolute;right:-12px;bottom:-22px;background:var(--gold);color:#2B1F05;padding:16px 20px;display:grid;line-height:1.3;max-width:220px}
+.ai-media .count b{font-family:var(--f-display);font-size:38px;font-weight:800}
+.ai-media .count span{font-size:13.5px;font-weight:600}
+.pillars{display:grid;gap:4px;margin-top:30px}
+.pillar{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,.12)}
+.pillar h3{font-size:17px;margin-bottom:4px}
+.pillar p{font-size:14.5px;color:var(--on-night-muted)}
+
+/* audiences */
+.aud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.aud > div{padding:28px 24px 8px 24px;border-inline-start:1px solid var(--line);display:grid;gap:12px;align-content:start;min-width:0}
+.aud > div:first-child{border-inline-start:0;padding-inline-start:0}
+.aud h3{font-size:18px}
+.aud p{font-size:14.5px;color:var(--muted)}
+
+/* why */
+.why .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.framed{position:relative;padding:0 0 22px 22px}
+.framed::before{content:"";position:absolute;left:0;bottom:0;width:62%;height:70%;background:var(--leaf-soft);border:1.5px solid var(--leaf)}
+.framed img{position:relative;width:100%;aspect-ratio:4/3.4;object-fit:cover}
+.framed .tag{position:absolute;top:22px;right:-12px;background:var(--surface);box-shadow:var(--shadow);padding:12px 16px;display:flex;gap:10px;align-items:center;font-family:var(--f-display);font-weight:600;font-size:14px;color:var(--heading);border-radius:4px}
+.framed .tag .lucide{color:var(--leaf);font-size:20px}
+.why-list{display:grid;grid-template-columns:1fr 1fr;gap:28px 36px;margin-top:32px}
+.why-item{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.why-item h3{font-size:16.5px;margin-bottom:4px}
+.why-item p{font-size:14.5px;color:var(--muted);line-height:1.7}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;top:30px;right:30px;left:30px;height:2px;background:repeating-linear-gradient(-90deg,var(--gold) 0 10px,transparent 10px 18px)}
+.step{position:relative;display:grid;gap:12px;align-content:start}
+.step .n{width:60px;height:60px;border-radius:50%;background:var(--surface);border:2px solid var(--gold);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--heading);position:relative;z-index:1}
+.step:last-child .n{background:var(--gold);color:#2B1F05}
+.step h3{font-size:18px}
+.step p{font-size:14.5px;color:var(--muted)}
+
+/* CTA band */
+.cta-band{background:var(--gold-soft);border-block:1px solid color-mix(in srgb,var(--gold) 40%,transparent)}
+.cta-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;padding-block:44px}
+.cta-band h2{font-size:clamp(22px,2.6vw,30px)}
+.cta-band p{color:var(--muted);margin-top:6px}
+
+/* ---------- inner page hero ---------- */
+.phero{position:relative;overflow:hidden;background:var(--night);color:var(--on-night);--li:#fff}
+.phero::after{content:"";position:absolute;inset:auto 0 0 0;height:5px;background:linear-gradient(-90deg,var(--gold) 0 28%,var(--leaf) 28% 100%)}
+.phero .wrap{position:relative;z-index:1;padding-block:56px 60px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.crumbs{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--on-night-muted);margin-bottom:16px}
+.crumbs a:hover{color:var(--gold)}
+.crumbs .lucide{width:14px;height:14px}
+.phero h1{color:#fff;font-size:clamp(32px,4.4vw,50px);font-weight:800}
+.phero p{color:var(--on-night-muted);font-size:18px;max-width:62ch;margin-top:14px}
+.phero .mark-bg{position:absolute;left:-60px;top:-30px;height:150%;width:auto;opacity:.09;pointer-events:none}
+.phero .side{display:flex;gap:28px}
+.phero .side div{display:grid;border-inline-start:2px solid var(--gold);padding-inline-start:14px}
+.phero .side b{font-family:var(--f-display);font-size:30px;color:#fff;line-height:1.2}
+.phero .side span{font-size:13px;color:var(--on-night-muted)}
+
+/* ---------- ABOUT ---------- */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+.prose p{color:var(--fg);font-size:17px;margin-top:16px;max-width:64ch}
+.prose p:first-of-type{margin-top:20px}
+.name-card{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:40px;position:relative;overflow:hidden}
+.name-card .word{font-family:var(--f-display);font-size:clamp(64px,9vw,112px);font-weight:800;color:var(--leaf);line-height:1}
+.name-card .word small{display:block;font-size:15px;color:var(--gold-deep);font-weight:600;margin-top:12px;letter-spacing:.02em}
+.name-card dl{margin:0;display:grid;gap:14px}
+.name-card dt{font-family:var(--f-display);font-weight:600;color:var(--heading);font-size:16px}
+.name-card dd{margin:0;color:var(--muted);font-size:15.5px}
+.vm{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vm > div{padding:36px;border-radius:6px;display:grid;gap:14px;align-content:start}
+.vm .v{background:var(--leaf-soft)}
+.vm .m{background:var(--ink-soft)}
+.vm h3{font-size:22px;display:flex;gap:12px;align-items:center}
+.vm p{font-size:16.5px;line-height:1.9}
+.values{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.values > div{padding:28px 22px;display:grid;gap:12px;align-content:start;border-inline-start:1px solid var(--line);min-width:0}
+.values > div:first-child{border-inline-start:0}
+.values h3{font-size:18px}
+.values p{font-size:14.5px;color:var(--muted);line-height:1.75}
+.gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+.gallery figure{margin:0;position:relative;overflow:hidden;border-radius:4px;background:var(--line)}
+.gallery figure:first-child{grid-row:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{position:absolute;bottom:0;inset-inline:0;padding:28px 14px 10px;background:linear-gradient(0deg,rgba(7,30,42,.85),transparent);color:#fff;font-size:13.5px;font-family:var(--f-display)}
+
+/* ---------- PROGRAMS ---------- */
+.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.area{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.area .ph{aspect-ratio:16/9.5;overflow:hidden;background:var(--line)}
+.area .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.area:hover .ph img{transform:scale(1.04)}
+.area .bd{padding:0 24px 24px;display:grid;gap:10px;position:relative}
+.area .leaf{margin-top:-24px;box-shadow:0 8px 20px -8px rgba(6,45,66,.4);border:3px solid var(--surface);width:52px;height:52px}
+.area h3{font-size:18px}
+.area p{font-size:14.5px;color:var(--muted);line-height:1.75}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tags span{font-size:12.5px;padding:3px 10px;background:var(--paper);border:1px solid var(--line);border-radius:999px;color:var(--fg)}
+
+.toolbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 81px);z-index:20;background:var(--paper);padding-block:14px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.tb-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.field{position:relative;flex:1 1 260px;min-width:0}
+.field .lucide{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.input,.select{width:100%;height:46px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:0 14px;font:inherit;font-size:15px}
+.field .input{padding-right:42px}
+.input:focus,.select:focus,textarea:focus{outline:none;border-color:var(--leaf);box-shadow:0 0 0 3px color-mix(in srgb,var(--leaf) 20%,transparent)}
+.select{flex:0 1 180px;width:auto;min-width:0}
+.check{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.check input{width:18px;height:18px;accent-color:var(--leaf)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-block:12px 2px;scrollbar-width:thin}
+.fchip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;font-size:14px;white-space:nowrap;background:var(--surface);color:var(--fg);transition:all .15s}
+.fchip .lucide{color:var(--leaf)}
+.fchip b{font-family:var(--f-display);font-size:12px;color:var(--muted);font-weight:600}
+.fchip[aria-pressed="true"]{background:var(--heading);border-color:var(--heading);color:var(--surface)}
+.fchip[aria-pressed="true"] .lucide,.fchip[aria-pressed="true"] b{color:var(--gold)}
+.result-line{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:18px}
+.result-line b{color:var(--heading);font-family:var(--f-display)}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--tone,var(--leaf));border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:box-shadow .2s,transform .2s}
+.pcard:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.pcard.done{opacity:.72}
+.pcard .r1{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.pcard h3{font-size:16.5px;line-height:1.6;font-weight:600}
+.pcard .r3{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;border-top:1px dashed var(--line)}
+.empty{padding:48px 20px;text-align:center;border:1.5px dashed var(--line);border-radius:6px;color:var(--muted);display:grid;gap:10px;justify-items:center}
+.empty .lucide{font-size:28px;color:var(--leaf)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px}
+.modal[hidden]{display:none!important}
+.modal .scrim{position:absolute;inset:0;background:rgba(5,25,35,.6)}
+.modal .box{position:relative;background:var(--surface);border-radius:8px;width:min(760px,100%);max-height:calc(100dvh - 32px);overflow-y:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+.modal .mh{padding:28px 28px 20px;background:var(--night);color:var(--on-night);position:relative}
+.modal .mh h3{color:#fff;font-size:22px;line-height:1.5;margin-top:12px;padding-inline-end:36px}
+.modal .x{position:absolute;top:16px;left:16px;width:40px;height:40px;border-radius:6px;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.08);font-size:20px}
+.modal .x:hover{background:rgba(255,255,255,.16)}
+.modal .mb{padding:24px 28px 28px;display:grid;gap:22px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.facts div{background:var(--paper);border-radius:6px;padding:12px 14px;display:grid;gap:2px;min-width:0}
+.facts small{font-size:12px;color:var(--muted)}
+.facts b{font-family:var(--f-display);font-size:14.5px;color:var(--heading);font-weight:600;line-height:1.5}
+.inc{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:var(--fg)}
+.inc span{display:inline-flex;gap:8px;align-items:center}
+.inc .lucide{color:var(--leaf)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .full{grid-column:1/-1}
+.form label{display:grid;gap:6px;font-size:13.5px;font-weight:600;color:var(--heading);font-family:var(--f-display)}
+.form label span.req{color:var(--gold-deep)}
+.form textarea{min-height:90px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:10px 14px;font:inherit;font-size:15px;resize:vertical}
+.form .err{font-size:12.5px;color:#B4442F;font-weight:500;font-family:var(--f-body)}
+:root[data-theme="dark"] .form .err{color:#F09A86}
+.form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.form-note{font-size:13px;color:var(--muted)}
+.done-box{border:1.5px solid var(--leaf);background:var(--leaf-soft);border-radius:6px;padding:20px;display:grid;gap:12px}
+.done-box h4{font-size:17px;display:flex;gap:10px;align-items:center}
+.done-box textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:6px;padding:12px;font:inherit;font-size:14px;background:var(--surface);color:var(--fg);direction:rtl}
+.send-to{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px}
+.send-to span{display:inline-flex;gap:8px;align-items:center;user-select:all}
+.send-to .lucide{color:var(--leaf)}
+
+/* ---------- ACCREDITATIONS ---------- */
+.khda{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:48px;position:relative;overflow:hidden}
+.seal{width:220px;height:220px;position:relative;flex:none}
+.seal svg{width:100%;height:100%}
+.means{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.mean{padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:6px;display:grid;gap:12px;align-content:start}
+.mean h3{font-size:17px}
+.mean p{font-size:14.5px;color:var(--muted)}
+.ent{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:stretch}
+.ent-card{background:var(--night);color:var(--on-night);border-radius:6px;padding:36px;display:grid;gap:18px;align-content:start;--li:#fff;position:relative;overflow:hidden}
+.ent-card dl{display:grid;gap:14px;margin:0}
+.ent-card dt{font-size:12.5px;color:var(--on-night-muted)}
+.ent-card dd{margin:0;font-family:var(--f-display);font-size:16px;color:#fff;font-weight:500}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;position:relative}
+.cert .sheet{border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:4px;padding:28px 30px;display:grid;gap:10px;justify-items:center;text-align:center;background:linear-gradient(180deg,var(--surface),var(--paper));margin:6px}
+.cert .sheet svg{height:66px;width:auto}
+.cert .sheet .t{font-family:var(--f-display);font-weight:700;font-size:22px;color:var(--heading)}
+.cert .sheet .n{font-family:var(--f-display);font-size:19px;color:var(--leaf);border-bottom:1px dashed var(--line);padding:2px 30px}
+.cert .sheet .d{font-size:13.5px;color:var(--muted)}
+.cert .sheet .sig{display:flex;justify-content:space-between;width:100%;margin-top:14px;font-size:12px;color:var(--muted)}
+.cert .sheet .sig span{border-top:1px solid var(--line);padding-top:6px;min-width:110px}
+.cert .note{position:absolute;top:24px;left:24px;font-size:11.5px;background:var(--gold-soft);color:var(--gold-deep);padding:3px 10px;border-radius:999px;font-weight:600}
+.cycle{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;border-top:2px solid var(--heading)}
+.cyc{padding:22px 16px 6px;border-inline-start:1px solid var(--line);display:grid;gap:10px;align-content:start;min-width:0}
+.cyc:first-child{border-inline-start:0;padding-inline-start:0}
+.cyc .n{font-family:var(--f-display);font-size:13px;font-weight:700;color:var(--gold-deep)}
+.cyc h3{font-size:16px}
+.cyc p{font-size:14px;color:var(--muted);line-height:1.7}
+.levels{display:grid;gap:10px}
+.lvl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:center;padding:18px 22px;background:var(--surface);border:1px solid var(--line);border-radius:6px;position:relative;overflow:hidden}
+.lvl::before{content:"";position:absolute;top:0;bottom:0;right:0;width:var(--w);background:linear-gradient(-90deg,color-mix(in srgb,var(--leaf) 14%,transparent),transparent);pointer-events:none}
+.lvl h3{font-size:16.5px;display:flex;gap:10px;align-items:center;position:relative}
+.lvl p{font-size:14.5px;color:var(--muted);position:relative}
+
+/* ---------- TEAM ---------- */
+.roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.role{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:26px;display:grid;gap:14px;align-content:start;position:relative;overflow:hidden}
+.role .av{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font-size:28px;position:relative}
+.role .av::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px dashed currentColor;opacity:.4}
+.role h3{font-size:17.5px}
+.role p{font-size:14.5px;color:var(--muted)}
+.role .contact{font-size:13.5px;color:var(--ink);display:flex;gap:8px;align-items:center;margin-top:4px}
+.faculty{border-top:2px solid var(--heading)}
+.frow{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) 120px;gap:28px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line)}
+.frow .who{display:flex;gap:14px;align-items:center;min-width:0}
+.frow h3{font-size:16.5px;line-height:1.5}
+.frow .num{font-family:var(--f-display);text-align:end}
+.frow .num b{font-size:24px;color:var(--heading);display:block;line-height:1.1}
+.frow .num span{font-size:12.5px;color:var(--muted)}
+.criteria{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:28px}
+.criteria li{display:flex;gap:12px;align-items:flex-start;font-size:16px;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.criteria .lucide{color:var(--leaf);margin-top:5px}
+.join{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--night);color:var(--on-night);padding:36px 40px;border-radius:6px;margin-top:48px}
+.join h3{color:#fff;font-size:22px}
+.join p{color:var(--on-night-muted);margin-top:6px}
+.join .mail{font-family:var(--f-display);font-size:18px;color:var(--gold);user-select:all;display:inline-flex;gap:10px;align-items:center}
+
+/* ---------- EXPERIENCE ---------- */
+.case{display:grid;grid-template-columns:.85fr 1.15fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.case .cside{background:var(--night);color:var(--on-night);padding:40px;display:grid;gap:18px;align-content:start;position:relative;overflow:hidden;--li:#fff}
+.case .cside h3{color:#fff;font-size:28px}
+.case .cside p{color:var(--on-night-muted)}
+.case .cside .kv{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.case .cside .kv div{border-inline-start:2px solid var(--gold);padding-inline-start:12px}
+.case .cside .kv b{display:block;font-family:var(--f-display);font-size:28px;color:#fff;line-height:1.2}
+.case .cside .kv span{font-size:13px;color:var(--on-night-muted)}
+.case .cmain{padding:36px 40px;display:grid;gap:22px}
+.prog{display:grid;gap:12px;padding-bottom:22px;border-bottom:1px dashed var(--line)}
+.prog:last-child{border-bottom:0;padding-bottom:0}
+.prog .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.prog h4{font-size:18.5px;line-height:1.5}
+.prog .meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.prog .meta span{display:inline-flex;gap:6px;align-items:center}
+.prog .meta .lucide{color:var(--gold-deep)}
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mods div{background:var(--paper);border-radius:6px;padding:12px 14px;font-size:14px;min-width:0}
+.mods small{display:block;font-family:var(--f-display);color:var(--leaf);font-weight:600;font-size:12px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:28px;display:grid;gap:18px;align-content:start;min-width:0}
+.chart h3{font-size:18px}
+.chart .sub{font-size:13.5px;color:var(--muted);margin-top:-12px}
+.bars{display:grid;gap:12px}
+.bar{display:grid;grid-template-columns:150px minmax(0,1fr) 36px;gap:12px;align-items:center;font-size:14px}
+.bar .lab{display:flex;gap:8px;align-items:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .trk{height:14px;background:var(--paper);border-radius:0 7px 7px 0;overflow:hidden}
+.bar .fill{height:100%;background:var(--tone,var(--leaf));border-radius:0 7px 7px 0;transform-origin:right}
+.bar .v{font-family:var(--f-display);font-weight:700;color:var(--heading);text-align:end;font-variant-numeric:tabular-nums}
+.months{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:end;height:220px;padding-top:10px;border-bottom:1px solid var(--line)}
+.mcol{display:grid;justify-items:center;gap:8px;height:100%;align-content:end}
+.mcol .col{width:min(84px,100%);background:var(--ink);border-radius:4px 4px 0 0}
+.mcol:nth-child(2) .col{background:var(--leaf)}
+.mcol:nth-child(3) .col{background:var(--gold)}
+.mcol b{font-family:var(--f-display);font-size:22px;color:var(--heading)}
+.mlabels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;text-align:center;font-size:14px;color:var(--muted);margin-top:-8px}
+.sectors{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.sector{display:grid;gap:12px;justify-items:start;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:6px;min-width:0}
+.sector h3{font-size:16px}
+.sector p{font-size:13.5px;color:var(--muted)}
+.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.format{padding:26px;border-radius:6px;display:grid;gap:10px;align-content:start;border:1px solid var(--line);background:var(--surface)}
+.format h3{font-size:17px}
+.format p{font-size:14.5px;color:var(--muted)}
+.format .cities{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.format .cities span{font-size:12.5px;padding:3px 10px;border-radius:999px;background:var(--gold-soft);color:var(--gold-deep);font-weight:600}
+
+/* ---------- contact block & footer ---------- */
+.contact .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.cinfo{display:grid;gap:4px;margin-top:28px}
+.cline{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.cline small{display:block;font-size:12.5px;color:var(--muted)}
+.cline b{font-family:var(--f-display);font-weight:600;color:var(--heading);font-size:15.5px;user-select:all}
+.cline .two{display:flex;flex-wrap:wrap;gap:4px 18px}
+.copy-btn{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--leaf);font-weight:600;padding:4px 8px;border-radius:4px}
+.copy-btn:hover{background:var(--leaf-soft)}
+.cform{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:32px;box-shadow:var(--shadow)}
+.cform h3{font-size:20px;margin-bottom:6px}
+.cform > p{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+
+footer.site{background:var(--night);color:var(--on-night-muted);--li:#fff;font-size:14.5px;position:relative;overflow:hidden}
+footer.site .wrap{padding-block:64px 24px}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1.2fr 1fr;gap:40px}
+.fgrid svg.flogo{height:78px;width:auto}
+.fgrid h4{color:#fff;font-size:15px;margin-bottom:16px}
+.fgrid ul{display:grid;gap:9px}
+.fgrid a:hover{color:var(--gold)}
+.fgrid p{margin-top:16px;max-width:36ch;line-height:1.85}
+.khda-mini{display:inline-flex;gap:10px;align-items:center;margin-top:18px;padding:10px 14px;border:1px solid rgba(255,255,255,.14);border-radius:6px;color:#fff;font-size:13.5px}
+.khda-mini .lucide{color:var(--gold);font-size:20px}
+.fbottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:13px}
+footer.site .mark-bg{position:absolute;left:-40px;bottom:-60px;width:300px;opacity:.06;pointer-events:none}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--heading);color:var(--surface);padding:12px 18px;border-radius:6px;font-size:14px;opacity:0;transition:all .25s;z-index:100;pointer-events:none;display:flex;gap:8px;align-items:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .menu .top{padding:0 10px;font-size:14.5px}
+  .nav-cta .btn-line{display:none}
+}
+@media (max-width:1024px){
+  .menu,.nav-cta .btn{display:none}
+  .burger{display:grid}
+  .nav-cta{margin-inline-start:auto}
+  .mega{display:none}
+  .hero .wrap{grid-template-columns:1fr;gap:48px;padding-block:44px 96px}
+  .media{max-width:620px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-inline-start:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .lrow{grid-template-columns:90px minmax(0,1fr) auto;gap:8px 18px}
+  .lrow .chip{grid-column:2;grid-row:2}
+  .lrow .city{grid-column:2;grid-row:3}
+  .lrow .act{grid-column:3;grid-row:1/span 3;align-self:center}
+  .tracks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ai-band .wrap,.why .wrap,.split,.contact .wrap,.ent,.case{grid-template-columns:1fr;gap:48px}
+  .case{gap:0}
+  .aud{grid-template-columns:1fr 1fr}
+  .aud > div:nth-child(3){border-inline-start:0;padding-inline-start:0}
+  .aud > div:nth-child(n+3){border-top:1px solid var(--line)}
+  .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+  .steps::before{display:none}
+  .values{grid-template-columns:1fr}
+  .values > div{border-inline-start:0;border-top:1px solid var(--line);grid-template-columns:auto 1fr;column-gap:18px}
+  .values > div:first-child{border-top:0}
+  .values > div .leaf{grid-row:span 2}
+  .areas,.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .means,.roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cycle{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:18px}
+  .cyc:nth-child(4){border-inline-start:0;padding-inline-start:0}
+  .charts{grid-template-columns:1fr}
+  .sectors{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sectors .sector:last-child{grid-column:1/-1}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .phero .wrap{grid-template-columns:1fr}
+  .khda{grid-template-columns:1fr;justify-items:start;padding:36px}
+  .toolbar{top:calc(env(safe-area-inset-top,0px) + 81px)}
+}
+@media (max-width:680px){
+  .section{padding-block:64px}
+  .topbar .hide-sm{display:none}
+  .nav-row{height:72px}
+  .brand svg{height:50px}
+  .toolbar{top:calc(env(safe-area-inset-top,0px) + 73px)}
+  .hero h1{font-size:clamp(34px,10vw,44px)}
+  .hero-meta{gap:14px 22px}
+  .stat{padding:20px}
+  .stat b{font-size:34px}
+  .tracks,.areas,.pgrid,.means,.roles,.formats{grid-template-columns:1fr}
+  .track.feature{grid-column:auto}
+  .aud,.why-list,.criteria{grid-template-columns:1fr}
+  .aud > div{border-inline-start:0!important;padding-inline-start:0!important;border-top:1px solid var(--line)}
+  .aud > div:first-child{border-top:0}
+  .steps{grid-template-columns:1fr}
+  .vm{grid-template-columns:1fr}
+  .name-card{grid-template-columns:1fr;gap:20px;padding:28px}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:200px 140px 140px}
+  .gallery figure:first-child{grid-column:1/-1;grid-row:auto}
+  .cycle{grid-template-columns:1fr}
+  .cyc{border-inline-start:0!important;padding-inline-start:0!important;border-bottom:1px solid var(--line);padding-bottom:14px}
+  .lvl{grid-template-columns:1fr;gap:6px}
+  .frow{grid-template-columns:1fr auto;gap:10px 16px}
+  .frow .tags{grid-column:1/-1;grid-row:2}
+  .join{grid-template-columns:1fr;padding:28px}
+  .mods{grid-template-columns:1fr}
+  .case .cside,.case .cmain{padding:28px}
+  .bar{grid-template-columns:96px minmax(0,1fr) 30px}
+  .sectors{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr}
+  .cform{padding:22px}
+  .modal .mh,.modal .mb{padding-inline:20px}
+  .phero .side{gap:18px}
+  .phero .side b{font-size:24px}
+  .ai-media .count{right:0}
+  .framed .tag{right:0}
+  .select{flex:1 1 140px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-full" viewBox="40 46 654 350">%%LOGO_FULL%%</symbol>
+  <symbol id="logo-mark" viewBox="44 50 280 297">%%LOGO_MARK%%</symbol>
+</svg>
+
+<div id="app" dir="rtl" lang="ar">
+
+<!-- ===== Top bar ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="grp">
+      <span class="it"><i data-lucide="badge-check"></i> مرخّص من <b>هيئة المعرفة والتنمية البشرية KHDA</b></span>
+      <span class="it hide-sm"><i data-lucide="map-pin"></i> دبي، الإمارات العربية المتحدة</span>
+    </div>
+    <div class="grp">
+      <span class="it hide-sm"><i data-lucide="phone"></i> <span class="ltr">+971 55 701 4016</span></span>
+      <span class="it"><i data-lucide="mail"></i> <span class="ltr">hala@nuhal.ae</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Header + mega menu ===== -->
+<header class="site" id="siteHeader">
+  <div class="wrap nav-row">
+    <a class="brand" href="#home" data-go="home" aria-label="نُهال المعرفة — الصفحة الرئيسية"><svg role="img" aria-label="شعار نُهال المعرفة"><use href="#logo-full"/></svg></a>
+    <ul class="menu" role="menubar">
+      <li><a class="top" href="#home" data-go="home" data-nav="home">الرئيسية</a></li>
+      <li><button class="top" data-mega="mAbout" data-nav="about" aria-expanded="false" aria-controls="mAbout">عن الشركة <i data-lucide="chevron-down"></i></button></li>
+      <li><button class="top" data-mega="mPrograms" data-nav="programs" aria-expanded="false" aria-controls="mPrograms">البرامج التدريبية <i data-lucide="chevron-down"></i></button></li>
+      <li><a class="top" href="#accreditations" data-go="accreditations" data-nav="accreditations">الاعتمادات</a></li>
+      <li><a class="top" href="#team" data-go="team" data-nav="team">الفريق</a></li>
+      <li><button class="top" data-mega="mExp" data-nav="experience" aria-expanded="false" aria-controls="mExp">الخبرات <i data-lucide="chevron-down"></i></button></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-line btn-sm" href="#programs" data-go="programs" data-anchor="catalog"><i data-lucide="calendar-days"></i> التقويم</a>
+      <button class="btn btn-primary btn-sm" data-contact>تواصل معنا <i data-lucide="arrow-left" class="go"></i></button>
+      <button class="burger" id="burger" aria-label="فتح القائمة" aria-expanded="false"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+
+  <!-- Mega: About -->
+  <div class="mega mega-about" id="mAbout" role="region" aria-label="عن الشركة">
+    <div class="wrap">
+      <div>
+        <h4>تعرّف على نُهال المعرفة</h4>
+        <div class="mlinks">
+          <a class="mlink" href="#about" data-go="about"><span class="leaf sm t-leaf"><i data-lucide="sprout"></i></span><span><b>من نحن</b><small>مركز تدريب وتطوير مرخّص في دبي</small></span></a>
+          <a class="mlink" href="#about" data-go="about" data-anchor="name"><span class="leaf sm t-gold"><i data-lucide="droplets"></i></span><span><b>قصة الاسم</b><small>من المنهل إلى النمو</small></span></a>
+          <a class="mlink" href="#about" data-go="about" data-anchor="vision"><span class="leaf sm t-ink"><i data-lucide="eye"></i></span><span><b>الرؤية والرسالة</b><small>إلى أين نتجه وكيف نصل</small></span></a>
+          <a class="mlink" href="#about" data-go="about" data-anchor="values"><span class="leaf sm t-leaf"><i data-lucide="gem"></i></span><span><b>قيمنا</b><small>خمسة مبادئ تحكم عملنا</small></span></a>
+        </div>
+      </div>
+      <div>
+        <h4>أقسام ومبادرات</h4>
+        <div class="mlinks">
+          <a class="mlink" href="#about" data-go="about" data-anchor="ai-division"><span class="leaf sm t-gold"><i data-lucide="brain-circuit"></i></span><span><b>قسم جاهزية الذكاء الاصطناعي</b><small>AI &amp; AGI Readiness Division</small></span></a>
+          <a class="mlink" href="#about" data-go="about" data-anchor="gallery"><span class="leaf sm t-ink"><i data-lucide="images"></i></span><span><b>التعلّم في الميدان</b><small>لقطات من قاعات التدريب</small></span></a>
+          <a class="mlink" href="#team" data-go="team"><span class="leaf sm t-leaf"><i data-lucide="users"></i></span><span><b>فريق العمل والخبراء</b><small>من يصمّم وينفّذ برامجنا</small></span></a>
+        </div>
+      </div>
+      <a class="mfeature" href="#accreditations" data-go="accreditations">
+        <img src="img/t-burj.jpg" alt="أفق دبي وبرج خليفة عند الغروب" loading="lazy">
+        <span class="in"><span class="kicker" style="color:var(--gold)">ترخيص رسمي</span><b>مرخّصون من هيئة المعرفة والتنمية البشرية في دبي</b><small>تعرّف على ما يعنيه الترخيص لجهتك ولمشاركيك</small></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mega: Programs -->
+  <div class="mega mega-programs" id="mPrograms" role="region" aria-label="البرامج التدريبية">
+    <div class="wrap">
+      <div>
+        <h4>مسارات تقويم الربع الرابع 2026 <span id="megaTotal"></span></h4>
+        <div class="mlinks" id="megaTracks"></div>
+      </div>
+      <div>
+        <h4>مجالات التدريب</h4>
+        <div class="mlinks" id="megaAreas"></div>
+      </div>
+      <div style="display:grid;gap:14px;align-content:start">
+        <h4>البرنامج القادم</h4>
+        <div class="mticket" id="megaTicket"></div>
+        <a class="btn btn-gold" href="#programs" data-go="programs" data-anchor="catalog"><i data-lucide="calendar-range"></i> التقويم الكامل للبرامج</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mega: Experience -->
+  <div class="mega mega-exp" id="mExp" role="region" aria-label="الخبرات">
+    <div class="wrap">
+      <div>
+        <h4>من سجل الخبرات</h4>
+        <div class="mlinks">
+          <a class="mlink" href="#experience" data-go="experience" data-anchor="case"><span class="leaf sm t-ink"><i data-lucide="building-2"></i></span><span><b>بلدية دبي</b><small>برنامجان في التسويق الحكومي والرقمي</small></span></a>
+          <a class="mlink" href="#experience" data-go="experience" data-anchor="footprint"><span class="leaf sm t-gold"><i data-lucide="globe-2"></i></span><span><b>الانتشار الجغرافي</b><small>دبي والقاهرة واسطنبول ومدريد وفرنسا</small></span></a>
+          <a class="mlink" href="#experience" data-go="experience" data-anchor="sectors"><span class="leaf sm t-leaf"><i data-lucide="layers"></i></span><span><b>القطاعات التي نخدمها</b><small>من الحكومات إلى الأطفال</small></span></a>
+        </div>
+      </div>
+      <div>
+        <h4>بالأرقام</h4>
+        <div class="mfacts" id="megaFacts"></div>
+      </div>
+      <a class="mfeature" href="#experience" data-go="experience">
+        <img src="img/t-table.jpg" alt="مدرب يقود نقاشاً مع مشاركين حول طاولة اجتماعات" loading="lazy">
+        <span class="in"><span class="kicker" style="color:var(--gold)">خبرة ميدانية</span><b>برامج تُبنى على واقع الجهة وتُقاس بما يتغيّر بعدها</b><small>استعرض سجل الخبرات</small></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close-drawer></div>
+  <nav class="panel" aria-label="القائمة الرئيسية">
+    <div class="dhead"><svg aria-hidden="true"><use href="#logo-full"/></svg><button class="burger" data-close-drawer aria-label="إغلاق القائمة" style="display:grid"><i data-lucide="x"></i></button></div>
+    <a class="dlink" href="#home" data-go="home">الرئيسية</a>
+    <div class="dacc"><button aria-expanded="false">عن الشركة <i data-lucide="chevron-down"></i></button>
+      <div class="sub" hidden>
+        <a href="#about" data-go="about"><i data-lucide="sprout"></i> من نحن</a>
+        <a href="#about" data-go="about" data-anchor="vision"><i data-lucide="eye"></i> الرؤية والرسالة</a>
+        <a href="#about" data-go="about" data-anchor="values"><i data-lucide="gem"></i> قيمنا</a>
+        <a href="#about" data-go="about" data-anchor="ai-division"><i data-lucide="brain-circuit"></i> قسم جاهزية الذكاء الاصطناعي</a>
+      </div></div>
+    <div class="dacc"><button aria-expanded="false">البرامج التدريبية <i data-lucide="chevron-down"></i></button>
+      <div class="sub" hidden id="drawerTracks"></div></div>
+    <a class="dlink" href="#accreditations" data-go="accreditations">الاعتمادات</a>
+    <a class="dlink" href="#team" data-go="team">الفريق</a>
+    <div class="dacc"><button aria-expanded="false">الخبرات <i data-lucide="chevron-down"></i></button>
+      <div class="sub" hidden>
+        <a href="#experience" data-go="experience" data-anchor="case"><i data-lucide="building-2"></i> بلدية دبي</a>
+        <a href="#experience" data-go="experience" data-anchor="footprint"><i data-lucide="globe-2"></i> الانتشار الجغرافي</a>
+        <a href="#experience" data-go="experience" data-anchor="sectors"><i data-lucide="layers"></i> القطاعات</a>
+      </div></div>
+    <button class="btn btn-primary" data-contact style="margin-top:16px">تواصل معنا <i data-lucide="arrow-left" class="go"></i></button>
+    <div style="margin-top:16px;font-size:14px;color:var(--muted);display:grid;gap:6px">
+      <span class="ltr" style="justify-self:start">+971 55 701 4016</span><span class="ltr" style="justify-self:start">hala@nuhal.ae</span>
+    </div>
+  </nav>
+</div>
+
+<main>
+<!-- =================== HOME =================== -->
+<section class="page" data-page="home">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="badge-line"><span class="dot"><i data-lucide="badge-check"></i></span>مركز تدريب <b>مرخّص من KHDA</b> في دبي</span>
+        <h1>نروي المعرفة،<br>فتنمو <em>الكفاءات<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 50 4, 120 4, 197 10" fill="none" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/></svg></em></h1>
+        <p class="lead">نُهال المعرفة للتدريب والتطوير تصمّم برامج للقيادات الحكومية والمؤسسات والأفراد في القيادة والذكاء الاصطناعي والابتكار والمالية الحكومية، وتنفّذها في دبي وفي وجهات دولية.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#programs" data-go="programs" data-anchor="catalog"><i data-lucide="calendar-days"></i> تصفّح تقويم البرامج</a>
+          <button class="btn btn-line" data-contact>اطلب برنامجاً مخصصاً لجهتك <i data-lucide="arrow-left" class="go"></i></button>
+        </div>
+        <div class="hero-meta">
+          <div><i data-lucide="landmark"></i> برامج للقطاع الحكومي</div>
+          <div><i data-lucide="building"></i> حلول للشركات</div>
+          <div><i data-lucide="graduation-cap"></i> مسارات للأفراد والطلاب</div>
+        </div>
+      </div>
+      <div class="media" aria-hidden="false">
+        <span class="blk b-gold"></span>
+        <span class="blk b-leaf"></span>
+        <div class="photo"><img src="img/hero.jpg" alt="جلسة تدريبية لقيادات في قاعة اجتماعات تطل على أفق دبي" fetchpriority="high"></div>
+        <svg class="arrow" viewBox="0 0 160 170" aria-hidden="true"><path class="draw" d="M8 162 C 40 140, 70 110, 92 70 S 128 18, 140 12"/><path class="head" d="M112 10 L 142 10 L 140 40"/></svg>
+        <div class="ticket" id="heroTicket"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats" id="homeStats"></div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="kicker">القادم في التقويم</span><h2 class="h2">مقاعد متاحة في الأسابيع القادمة</h2><p class="lead">مواعيد من خطة برامج الربع الرابع (أكتوبر – ديسمبر 2026). اختر البرنامج وأرسل طلب التسجيل خلال دقيقة.</p></div>
+        <a class="link-go" href="#programs" data-go="programs" data-anchor="catalog">التقويم الكامل <i data-lucide="arrow-left"></i></a>
+      </div>
+      <div class="ledger" id="upcoming"></div>
+    </div>
+  </section>
+
+  <section class="section on-surface">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="kicker">المسارات التخصصية</span><h2 class="h2">سبعة مسارات تغطي أولويات العمل الحكومي والمؤسسي</h2><p class="lead">كل مسار مجموعة برامج مترابطة، تبدأ من المفاهيم الاستراتيجية وتنتهي بأدوات تطبيقية يستخدمها المشارك في عمله في اليوم التالي.</p></div>
+      </div>
+      <div class="tracks" id="homeTracks"></div>
+    </div>
+  </section>
+
+  <section class="section on-dark ai-band">
+    <div class="wrap">
+      <div>
+        <span class="kicker">AI &amp; AGI Readiness Division</span>
+        <h2 class="h2">نُعدّ المؤسسات للعمل جنباً إلى جنب مع الأنظمة الذكية</h2>
+        <p class="lead">أطلقت نُهال المعرفة قسماً متخصصاً بالكامل للذكاء الاصطناعي وللمرحلة الانتقالية نحو الذكاء الاصطناعي العام. لا نكتفي بتعليم الأدوات؛ نُعدّ الجهات لحوكمة الأنظمة الذكية وقيادة العمل معها.</p>
+        <div class="pillars">
+          <div class="pillar"><span class="leaf t-gold"><i data-lucide="map"></i></span><div><h3>الاستراتيجية والجاهزية</h3><p>خرائط طريق 2030 وتقييم جاهزية الجهة في الحوكمة والموارد البشرية والتقنية.</p></div></div>
+          <div class="pillar"><span class="leaf t-leaf"><i data-lucide="shield-check"></i></span><div><h3>الحوكمة والاستخدام المسؤول</h3><p>سياسات الاستخدام الآمن وحماية البيانات وإدارة مخاطر النماذج داخل الجهات الحكومية.</p></div></div>
+          <div class="pillar"><span class="leaf t-ink"><i data-lucide="workflow"></i></span><div><h3>التطبيق في العمل اليومي</h3><p>هندسة الأوامر وCopilot وأتمتة العمليات والوكلاء الأذكياء Agentic AI.</p></div></div>
+        </div>
+        <div style="margin-top:28px"><a class="btn btn-gold" href="#programs" data-go="programs" data-filter="5" data-anchor="catalog">برامج الذكاء الاصطناعي <i data-lucide="arrow-left" class="go"></i></a></div>
+      </div>
+      <div class="ai-media">
+        <span class="frame"></span>
+        <img src="img/ai.jpg" alt="رقاقة ذكاء اصطناعي على لوحة دوائر مضيئة" loading="lazy">
+        <div class="count"><b id="aiCount">—</b><span>برنامجاً مرتبطاً بالذكاء الاصطناعي في تقويم هذا الربع</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">لمن نصمّم برامجنا</span><h2 class="h2">من مجالس القيادة إلى قاعات الأطفال</h2></div></div>
+      <div class="aud">
+        <div><span class="leaf t-ink"><i data-lucide="landmark"></i></span><h3>الجهات الحكومية</h3><p>برامج قيادية وتخصصية مرتبطة بمؤشرات الأداء ومستهدفات التحول الحكومي.</p></div>
+        <div><span class="leaf t-leaf"><i data-lucide="building-2"></i></span><h3>الشركات والمؤسسات</h3><p>رفع كفاءة الفرق في الإدارة والتقنية والمبيعات وخدمة العملاء.</p></div>
+        <div><span class="leaf t-gold"><i data-lucide="briefcase"></i></span><h3>المهنيون والأفراد</h3><p>مسارات للتقدّم الوظيفي واللغات والمهارات الرقمية والتحضير للاختبارات الدولية.</p></div>
+        <div><span class="leaf t-leaf"><i data-lucide="blocks"></i></span><h3>الطلاب والأطفال</h3><p>دعم أكاديمي وبرامج تنمية مهارات مناسبة للعمر في بيئة آمنة ومحفّزة.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-surface why">
+    <div class="wrap">
+      <div class="framed">
+        <img src="img/t-board.jpg" alt="مدرب يشرح على السبورة لمجموعة من المشاركين" loading="lazy">
+        <span class="tag"><i data-lucide="badge-check"></i> ترخيص KHDA</span>
+      </div>
+      <div>
+        <span class="kicker">لماذا نُهال المعرفة</span>
+        <h2 class="h2">ما الذي يجعل التدريب معنا مختلفاً</h2>
+        <div class="why-list">
+          <div class="why-item"><span class="leaf sm t-leaf"><i data-lucide="badge-check"></i></span><div><h3>ترخيص من KHDA</h3><p>مرخّصون من هيئة المعرفة والتنمية البشرية في دبي، ونلتزم بمعايير التعليم في الدولة.</p></div></div>
+          <div class="why-item"><span class="leaf sm t-gold"><i data-lucide="user-check"></i></span><div><h3>مدربون من الميدان</h3><p>خبراء يجمعون بين التأهيل الأكاديمي والخبرة العملية في القطاع الذي يدرّبون فيه.</p></div></div>
+          <div class="why-item"><span class="leaf sm t-ink"><i data-lucide="users-round"></i></span><div><h3>المتعلّم في المركز</h3><p>جداول مرنة ومجموعات صغيرة واهتمام فردي بكل مشارك.</p></div></div>
+          <div class="why-item"><span class="leaf sm t-leaf"><i data-lucide="monitor-smartphone"></i></span><div><h3>مرافق حديثة</h3><p>قاعات تدريب ومختبرات حاسوب وموارد تعلّم مجهّزة لبيئة تعلّم مريحة.</p></div></div>
+          <div class="why-item"><span class="leaf sm t-gold"><i data-lucide="layers"></i></span><div><h3>محفظة شاملة</h3><p>برامج تغطي كل مراحل التطوير، من الأطفال إلى القيادات التنفيذية.</p></div></div>
+          <div class="why-item"><span class="leaf sm t-ink"><i data-lucide="target"></i></span><div><h3>نتائج قابلة للقياس</h3><p>نركّز على مهارات تُطبَّق في العمل وتقدّم وظيفي يمكن رصده.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">منهجية العمل</span><h2 class="h2">من الاحتياج إلى الأثر في أربع مراحل</h2></div></div>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><h3>التشخيص</h3><p>نحلّل احتياج الجهة وفجوات الأداء قبل اقتراح أي محتوى.</p></div>
+        <div class="step"><span class="n">02</span><h3>التصميم</h3><p>نبني مخرجات تعلّم واضحة وحالات عملية من واقع القطاع.</p></div>
+        <div class="step"><span class="n">03</span><h3>التنفيذ</h3><p>تدريب تفاعلي يقوده خبراء ميدانيون، في دبي أو خارجها.</p></div>
+        <div class="step"><span class="n">04</span><h3>القياس</h3><p>تقييم قبلي وبعدي وتقرير أثر يُسلَّم للجهة بعد البرنامج.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <div><h2>هل لدى جهتك احتياج تدريبي محدد؟</h2><p>نصمّم البرنامج بالمحتوى والمدة والمكان الذي يناسب فريقكم.</p></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-primary" data-contact>اطلب عرضاً تدريبياً <i data-lucide="arrow-left" class="go"></i></button><a class="btn btn-line" href="#accreditations" data-go="accreditations">الاعتمادات</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ABOUT =================== -->
+<section class="page" data-page="about">
+  <div class="phero">
+    <svg class="mark-bg" aria-hidden="true"><use href="#logo-mark"/></svg>
+    <div class="wrap">
+      <div><nav class="crumbs"><a href="#home" data-go="home">الرئيسية</a><i data-lucide="chevron-left"></i><span>عن الشركة</span></nav>
+      <h1>نزرع المعرفة لتثمر أداءً</h1>
+      <p>مركز تدريب وتطوير في دبي، يخدم المهنيين والطلاب والأطفال وفرق العمل في الجهات الحكومية والخاصة.</p></div>
+      <div class="side"><div><b>KHDA</b><span>ترخيص رسمي</span></div><div><b>6</b><span>مجالات تدريب</span></div></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        <span class="kicker">من نحن</span>
+        <h2 class="h2">شريك تعلّم يفهم احتياجات سوق دبي والإمارات</h2>
+        <p>نُهال المعرفة للتدريب والتطوير مركز تدريب وتطوير مقرّه دبي، ومرخّص من هيئة المعرفة والتنمية البشرية (KHDA)، بما يضمن أن تلتزم برامجنا بأعلى معايير الجودة في التعليم والتدريب المهني.</p>
+        <p>نعمل على تمكين الأفراد والمؤسسات عبر برامج عالية الجودة تدعم النمو المستمر وتطوير المهارات والتعلّم مدى الحياة. نؤمن أن المعرفة أساس التقدّم، ونلتزم بتجارب تعلّم مبتكرة وعملية تقود إلى نتائج.</p>
+        <p>بفريق من المدربين والتربويين ذوي الخبرة، ومرافق حديثة، ونهج يضع المتعلّم أولاً، نخدم شريحة واسعة تشمل المهنيين والطلاب والأطفال وفرق الشركات، مع خيارات تعلّم مرنة تواكب احتياجات سوق دبي والإمارات.</p>
+      </div>
+      <div class="framed"><img src="img/t-monitor.jpg" alt="مشاركان يعملان على شاشة حاسوب خلال جلسة تدريب عملية" loading="lazy"><span class="tag"><i data-lucide="map-pin"></i> دبي، الإمارات</span></div>
+    </div>
+  </section>
+
+  <section class="section tight" id="name">
+    <div class="wrap">
+      <div class="name-card">
+        <div class="word">نُهال<small>NUHAL · نُهّال المعرفة</small></div>
+        <dl>
+          <div><dt>من أين جاء الاسم؟</dt><dd>«نَهِلَ» في العربية تعني شرب من المَنهَل، وهو مورد الماء. والنُّهّال هم من يَرِدون المنهل ليشربوا منه. وهكذا نرى المتدربين: باحثين يقصدون منابع المعرفة الأولى.</dd></div>
+          <div><dt>وماذا يقول الشعار؟</dt><dd>أوراق خضراء ترتوي فتنمو، وسهم ذهبي يصعد من بينها. معرفة تُروى، ثم أداء يرتفع ويمكن قياسه.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-surface" id="vision">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">الرؤية والرسالة</span><h2 class="h2">إلى أين نتجه، وكيف نصل</h2></div></div>
+      <div class="vm">
+        <div class="v"><h3><span class="leaf t-leaf"><i data-lucide="eye"></i></span>رؤيتنا</h3><p>أن نكون المنارة الاستراتيجية الرائدة في التدريب المهني وتنمية رأس المال البشري، نمكّن الأفراد والمؤسسات عبر منظومات تعلّم مبتكرة وذكية ومستدامة، ونسهم في بناء كوادر تنافسية جاهزة للمستقبل.</p></div>
+        <div class="m"><h3><span class="leaf t-ink"><i data-lucide="target"></i></span>رسالتنا</h3><p>تقديم حلول تدريب وتطوير بمعايير عالمية عبر منهجيات مبتكرة وتيسير احترافي وبرامج مصممة حسب الاحتياج، مع ترسيخ ثقافة التعلّم المستمر وتعزيز الكفاءات المهنية وتحقيق قيمة قابلة للقياس تدفع النمو المستدام لعملائنا وشركائنا.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="values">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">قيمنا</span><h2 class="h2">خمسة مبادئ تحكم كل برنامج نقدّمه</h2></div></div>
+      <div class="values">
+        <div><span class="leaf t-gold"><i data-lucide="award"></i></span><h3>التميّز</h3><p>أعلى المعايير في تصميم المناهج وتقديم التدريب والتعامل مع العملاء.</p></div>
+        <div><span class="leaf t-leaf"><i data-lucide="lightbulb"></i></span><h3>الابتكار</h3><p>دمج مستمر لتقنيات التعلّم الحديثة والمنظومات الذكية والمنهجيات الإبداعية.</p></div>
+        <div><span class="leaf t-ink"><i data-lucide="hand-helping"></i></span><h3>التمكين</h3><p>نزوّد الأفراد والفرق بالأدوات العملية والثقة اللازمة للقيادة في مجالاتهم.</p></div>
+        <div><span class="leaf t-leaf"><i data-lucide="sprout"></i></span><h3>الاستدامة</h3><p>ندعم النمو المهني طويل المدى والممارسات التي تلبّي متطلبات الغد.</p></div>
+        <div><span class="leaf t-gold"><i data-lucide="scale"></i></span><h3>النزاهة</h3><p>شفافية كاملة واحترافية ومسؤولية أخلاقية في كل شراكاتنا.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-dark ai-band" id="ai-division">
+    <div class="wrap">
+      <div class="ai-media"><span class="frame"></span><img src="img/ai.jpg" alt="رقاقة ذكاء اصطناعي على لوحة دوائر مضيئة" loading="lazy"></div>
+      <div>
+        <span class="kicker">قسم جاهزية الذكاء الاصطناعي والذكاء الاصطناعي العام</span>
+        <h2 class="h2">استباق الأفق بدل اللحاق به</h2>
+        <p class="lead">في مرحلة يتسارع فيها التغيير التقني، خرجت نُهال المعرفة عن نماذج التدريب التقليدية بقسم مخصّص للذكاء الاصطناعي ولمرحلة الانتقال نحو الذكاء الاصطناعي العام (AGI). نُعدّ المؤسسات للتعايش مع الأنظمة الذكية المستقلة، وحوكمتها، وقيادة العمل إلى جانبها.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" href="#programs" data-go="programs" data-filter="5" data-anchor="catalog">برامج الذكاء الاصطناعي الحكومي <i data-lucide="arrow-left" class="go"></i></a><a class="btn btn-line" href="#programs" data-go="programs" data-filter="1" data-anchor="catalog">التحول الرقمي</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">التعلّم في الميدان</span><h2 class="h2">قاعات تفاعلية، لا محاضرات صامتة</h2></div></div>
+      <div class="gallery">
+        <figure><img src="img/act-1.jpg" alt="قاعة تدريب ممتلئة بالمشاركين أمام شاشة عرض" loading="lazy"><figcaption>جلسات عامة بمشاركة واسعة</figcaption></figure>
+        <figure><img src="img/act-2.jpg" alt="ورشة عمل بأوراق ملاحظات ملوّنة على الجدار" loading="lazy"><figcaption>ورش تفكير تصميمي</figcaption></figure>
+        <figure><img src="img/t-present.jpg" alt="مدربة تقدّم عرضاً عن القيادة والاستراتيجية" loading="lazy"><figcaption>القيادة والاستراتيجية</figcaption></figure>
+        <figure><img src="img/act-3.jpg" alt="نقاش بين مشاركين حول حاسوب محمول" loading="lazy"><figcaption>تطبيق عملي على الأدوات</figcaption></figure>
+        <figure><img src="img/t-laptop.jpg" alt="مشاركة تعمل على حاسوب محمول في قاعة تدريب" loading="lazy"><figcaption>مختبرات رقمية</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== PROGRAMS =================== -->
+<section class="page" data-page="programs">
+  <div class="phero">
+    <svg class="mark-bg" aria-hidden="true"><use href="#logo-mark"/></svg>
+    <div class="wrap">
+      <div><nav class="crumbs"><a href="#home" data-go="home">الرئيسية</a><i data-lucide="chevron-left"></i><span>البرامج التدريبية</span></nav>
+      <h1>البرامج التدريبية</h1>
+      <p>ستة مجالات تدريب للأفراد والمؤسسات، وتقويم برامج حكومية متخصصة للربع الرابع من 2026 في دبي ووجهات دولية.</p></div>
+      <div class="side" id="progSide"></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">مجالات التدريب</span><h2 class="h2">ستة مجالات تغطي كل مراحل التطوير</h2><p class="lead">من المهارات التأسيسية للأطفال إلى برامج القيادات، بمحتوى يواكب احتياجات سوق العمل في الإمارات.</p></div></div>
+      <div class="areas" id="areas"></div>
+    </div>
+  </section>
+
+  <section class="section on-surface" id="catalog" style="padding-top:72px">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:8px"><div><span class="kicker">تقويم الربع الرابع 2026</span><h2 class="h2">خطة برامج أكتوبر – ديسمبر</h2><p class="lead">تُعقد البرامج خمسة أيام من الأحد إلى الخميس. صفِّ حسب المسار أو المدينة أو الشهر، ثم افتح البرنامج لإرسال طلب التسجيل.</p></div></div>
+    </div>
+    <div class="toolbar">
+      <div class="wrap">
+        <div class="tb-row">
+          <div class="field"><i data-lucide="search"></i><label for="q" class="sr">ابحث في البرامج</label><input class="input" id="q" type="search" placeholder="ابحث بعنوان البرنامج، مثل: الحوكمة، Copilot، الموازنات"></div>
+          <label for="fCity" class="sr">المدينة</label>
+          <select class="select" id="fCity"><option value="">كل المدن</option></select>
+          <label for="fMonth" class="sr">الشهر</label>
+          <select class="select" id="fMonth"><option value="">كل الأشهر</option><option value="10">أكتوبر</option><option value="11">نوفمبر</option><option value="12">ديسمبر</option></select>
+          <label class="check"><input type="checkbox" id="fPast"> إظهار البرامج المنعقدة</label>
+        </div>
+        <div class="chips" id="trackChips" role="group" aria-label="تصفية حسب المسار"></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="result-line"><span id="resultCount"></span><button class="copy-btn" id="resetFilters"><i data-lucide="rotate-ccw"></i> إعادة ضبط التصفية</button></div>
+      <div class="pgrid" id="pgrid"></div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== ACCREDITATIONS =================== -->
+<section class="page" data-page="accreditations">
+  <div class="phero">
+    <svg class="mark-bg" aria-hidden="true"><use href="#logo-mark"/></svg>
+    <div class="wrap">
+      <div><nav class="crumbs"><a href="#home" data-go="home">الرئيسية</a><i data-lucide="chevron-left"></i><span>الاعتمادات</span></nav>
+      <h1>الاعتمادات والجودة</h1>
+      <p>ترخيص رسمي من الجهة المنظّمة للتعليم في دبي، وإطار جودة داخلي يرافق كل برنامج من التشخيص حتى تقرير الأثر.</p></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="khda">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 220 220">
+            <circle cx="110" cy="110" r="104" fill="none" stroke="var(--gold)" stroke-width="2"/>
+            <circle cx="110" cy="110" r="94" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="2 5"/>
+            <circle cx="110" cy="110" r="78" fill="var(--night)"/>
+            <path d="M110 46 l7 14 15 2 -11 11 3 15 -14 -7 -14 7 3 -15 -11 -11 15 -2z" fill="var(--gold)" opacity=".95"/>
+            <text x="110" y="128" text-anchor="middle" font-family="Alexandria, sans-serif" font-weight="800" font-size="30" fill="#fff" letter-spacing="2">KHDA</text>
+            <text x="110" y="152" text-anchor="middle" font-family="IBM Plex Sans Arabic, sans-serif" font-weight="600" font-size="15" fill="#9FBDC2">مرخّص · دبي</text>
+          </svg>
+        </div>
+        <div>
+          <span class="kicker">الترخيص الرسمي</span>
+          <h2 class="h2">مرخّصون من هيئة المعرفة والتنمية البشرية في دبي</h2>
+          <p class="lead">هيئة المعرفة والتنمية البشرية (KHDA) هي الجهة الحكومية المسؤولة عن تنظيم قطاع التعليم الخاص في دبي، ومنه مراكز التدريب. ترخيصنا يعني أن برامجنا ومرافقنا وممارساتنا تخضع لإطارها التنظيمي ومعاييرها.</p>
+          <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><span class="tags"><span>Knowledge and Human Development Authority</span><span>Dubai, UAE</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight on-surface">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">ماذا يعني الترخيص لكم</span><h2 class="h2">ضمانات تحصل عليها الجهة والمشارك</h2></div></div>
+      <div class="means">
+        <div class="mean"><span class="leaf t-leaf"><i data-lucide="clipboard-check"></i></span><h3>جودة البرامج</h3><p>محتوى ومخرجات تعلّم تلتزم بمعايير الجودة المعتمدة في التعليم والتدريب المهني.</p></div>
+        <div class="mean"><span class="leaf t-gold"><i data-lucide="scale"></i></span><h3>امتثال تنظيمي</h3><p>عمل ضمن الأنظمة التعليمية في دولة الإمارات ومتطلبات الهيئة في دبي.</p></div>
+        <div class="mean"><span class="leaf t-ink"><i data-lucide="school"></i></span><h3>بيئة تدريب مناسبة</h3><p>قاعات ومختبرات وموارد تعلّم مهيّأة لتجربة تدريب فعّالة وآمنة.</p></div>
+        <div class="mean"><span class="leaf t-leaf"><i data-lucide="file-text"></i></span><h3>وضوح في التعاقد</h3><p>شفافية في تفاصيل البرامج والرسوم والتسجيل منذ أول تواصل.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap ent">
+      <div class="ent-card">
+        <svg class="mark-bg" aria-hidden="true" style="position:absolute;left:-30px;bottom:-40px;width:200px;opacity:.1"><use href="#logo-mark"/></svg>
+        <span class="kicker">الكيان القانوني</span>
+        <h3 style="font-size:22px">بيانات المنشأة</h3>
+        <dl>
+          <div><dt>الاسم التجاري</dt><dd>نُهال المعرفة للتدريب والتطوير ذ.م.م</dd></div>
+          <div><dt>Legal name</dt><dd class="ltr" style="display:block;text-align:left">Nuhal Almarifa Training &amp; Development L.L.C</dd></div>
+          <div><dt>المقر</dt><dd>دبي، الإمارات العربية المتحدة</dd></div>
+          <div><dt>جهة الترخيص</dt><dd>هيئة المعرفة والتنمية البشرية (KHDA)</dd></div>
+          <div><dt>الموقع الإلكتروني</dt><dd class="ltr" style="display:block;text-align:left">www.nuhal.ae</dd></div>
+        </dl>
+      </div>
+      <div class="cert">
+        <span class="note">نموذج توضيحي</span>
+        <div class="sheet">
+          <svg aria-hidden="true"><use href="#logo-full"/></svg>
+          <span class="t">شهادة إتمام برنامج تدريبي</span>
+          <span class="d">تشهد نُهال المعرفة للتدريب والتطوير بأن</span>
+          <span class="n">اسم المشارك</span>
+          <span class="d">قد أتمّ متطلبات البرنامج التدريبي «عنوان البرنامج» بعدد ساعات وتاريخ انعقاد محدّدين، واجتاز تقييمه بنجاح.</span>
+          <div class="sig"><span>المدير العام</span><span>مدير البرامج</span></div>
+        </div>
+        <p style="font-size:14px;color:var(--muted);padding:14px 8px 4px">يحصل كل مشارك يستوفي متطلبات الحضور والتقييم على شهادة إتمام تحمل اسم البرنامج وعدد ساعاته وتاريخ انعقاده.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-surface">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">دورة الجودة</span><h2 class="h2">ست محطات يمرّ بها كل برنامج</h2></div></div>
+      <div class="cycle">
+        <div class="cyc"><span class="n">01</span><span class="leaf sm t-leaf"><i data-lucide="search-check"></i></span><h3>تحليل الاحتياج</h3><p>مقابلات واستبيانات لتحديد الفجوة الفعلية في الأداء.</p></div>
+        <div class="cyc"><span class="n">02</span><span class="leaf sm t-gold"><i data-lucide="pencil-ruler"></i></span><h3>تصميم المخرجات</h3><p>أهداف تعلّم قابلة للقياس ومحتوى مبني على حالات حقيقية.</p></div>
+        <div class="cyc"><span class="n">03</span><span class="leaf sm t-ink"><i data-lucide="clipboard-list"></i></span><h3>تقييم قبلي</h3><p>قياس مستوى المشاركين قبل البدء لضبط العمق والأمثلة.</p></div>
+        <div class="cyc"><span class="n">04</span><span class="leaf sm t-leaf"><i data-lucide="presentation"></i></span><h3>تنفيذ تفاعلي</h3><p>تمارين وورش ومحاكاة بقيادة مدربين متخصصين.</p></div>
+        <div class="cyc"><span class="n">05</span><span class="leaf sm t-gold"><i data-lucide="clipboard-check"></i></span><h3>تقييم بعدي</h3><p>قياس ما تعلّمه المشارك ومقارنته بنتيجة التقييم القبلي.</p></div>
+        <div class="cyc"><span class="n">06</span><span class="leaf sm t-ink"><i data-lucide="file-bar-chart"></i></span><h3>تقرير الأثر</h3><p>تقرير للجهة بالنتائج والتوصيات وخطة المتابعة.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">قياس الأثر</span><h2 class="h2">أربعة مستويات نقيس عليها نجاح البرنامج</h2><p class="lead">إطار تقييم مستوحى من نموذج كيركباتريك، يربط ما يحدث في القاعة بما يتغيّر في العمل.</p></div></div>
+      <div class="levels">
+        <div class="lvl" style="--w:25%"><h3><span class="leaf sm t-leaf"><i data-lucide="smile"></i></span>1. التفاعل</h3><p>رضا المشاركين عن المحتوى والمدرب وبيئة التدريب، عبر استبيان في نهاية كل يوم.</p></div>
+        <div class="lvl" style="--w:50%"><h3><span class="leaf sm t-gold"><i data-lucide="brain"></i></span>2. التعلّم</h3><p>الفرق بين نتائج التقييم القبلي والبعدي في المعارف والمهارات المستهدفة.</p></div>
+        <div class="lvl" style="--w:75%"><h3><span class="leaf sm t-ink"><i data-lucide="repeat"></i></span>3. التطبيق</h3><p>مدى استخدام المشاركين لما تعلّموه في عملهم خلال الأسابيع التالية للبرنامج.</p></div>
+        <div class="lvl" style="--w:100%"><h3><span class="leaf sm t-leaf"><i data-lucide="trending-up"></i></span>4. الأثر</h3><p>انعكاس البرنامج على مؤشرات أداء الجهة التي تم الاتفاق عليها في مرحلة التشخيص.</p></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== TEAM =================== -->
+<section class="page" data-page="team">
+  <div class="phero">
+    <svg class="mark-bg" aria-hidden="true"><use href="#logo-mark"/></svg>
+    <div class="wrap">
+      <div><nav class="crumbs"><a href="#home" data-go="home">الرئيسية</a><i data-lucide="chevron-left"></i><span>الفريق</span></nav>
+      <h1>الفريق والخبراء</h1>
+      <p>فريق إدارة يقود التصميم والجودة والتنسيق، وشبكة خبراء ومستشارين متخصصين في كل مسار من مسارات التدريب.</p></div>
+      <div class="side"><div><b>7</b><span>مجموعات خبرة</span></div><div><b>4</b><span>وحدات إدارية</span></div></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <span class="kicker">كيف نعمل</span>
+        <h2 class="h2">فريق صغير في الإدارة، وشبكة واسعة من الخبراء في القاعة</h2>
+        <p class="lead">نختار لكل برنامج المدرب الأقرب إلى موضوعه وقطاعه، ويرافقه فريق البرامج من التشخيص حتى تسليم تقرير الأثر. بهذا تحصل الجهة على عمق التخصص مع نقطة تواصل واحدة.</p>
+      </div>
+      <div class="framed"><img src="img/t-present.jpg" alt="مدربة تقدّم عرضاً لمجموعة من المشاركين" loading="lazy"><span class="tag"><i data-lucide="users"></i> خبراء من الميدان</span></div>
+    </div>
+  </section>
+
+  <section class="section tight on-surface">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">فريق الإدارة</span><h2 class="h2">أربع وحدات تقود العمل</h2></div></div>
+      <div class="roles">
+        <div class="role"><span class="av t-ink"><i data-lucide="compass"></i></span><h3>الإدارة العامة</h3><p>تحدد التوجه الاستراتيجي للمركز، وتشرف على جودة البرامج والشراكات مع الجهات الحكومية والخاصة.</p></div>
+        <div class="role"><span class="av t-leaf"><i data-lucide="pencil-ruler"></i></span><h3>إدارة البرامج والتصميم التدريبي</h3><p>تحوّل احتياج الجهة إلى مناهج ومخرجات تعلّم وأدوات تقييم، وتتابع التنفيذ يوماً بيوم.</p></div>
+        <div class="role"><span class="av t-gold"><i data-lucide="headset"></i></span><h3>علاقات العملاء والتنسيق</h3><p>نقطة تواصل واحدة لكل جهة: الجدولة والتسجيل والترتيبات داخل الدولة وخارجها والشهادات.</p><span class="contact"><i data-lucide="mail"></i><span class="ltr">nuha@nuhal.ae</span></span></div>
+        <div class="role"><span class="av t-ink"><i data-lucide="line-chart"></i></span><h3>الجودة والتقييم</h3><p>تقيس رضا المشاركين ومستوى التعلّم قبل البرنامج وبعده، وتُعدّ تقارير الأثر للجهات.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">شبكة الخبراء</span><h2 class="h2">خبراء ومستشارون لكل مسار</h2><p class="lead">يقود برامج كل مسار مدربون يجمعون بين الخبرة التنفيذية في القطاع والتأهيل الأكاديمي والمهني.</p></div></div>
+      <div class="faculty" id="faculty"></div>
+
+      <div style="margin-top:64px" class="split">
+        <div>
+          <span class="kicker">معايير الاختيار</span>
+          <h2 class="h2">كيف نختار مدربينا</h2>
+          <ul class="criteria">
+            <li><i data-lucide="check"></i>خبرة عملية في القطاع الحكومي أو المؤسسي المرتبط بالبرنامج</li>
+            <li><i data-lucide="check"></i>تأهيل أكاديمي ومهني في مجال التخصص</li>
+            <li><i data-lucide="check"></i>قدرة على التدريب بالعربية مع المصطلحات الإنجليزية</li>
+            <li><i data-lucide="check"></i>سجل تقييمات مرتفع من المشاركين والجهات</li>
+            <li><i data-lucide="check"></i>تحديث مستمر للمحتوى بأحدث الأدوات والممارسات</li>
+            <li><i data-lucide="check"></i>أسلوب تطبيقي يعتمد الحالات والتمارين لا التلقين</li>
+          </ul>
+        </div>
+        <div class="framed"><img src="img/t-table.jpg" alt="مدرب يحاور مشاركين حول طاولة" loading="lazy"><span class="tag"><i data-lucide="star"></i> تقييم بعد كل برنامج</span></div>
+      </div>
+
+      <div class="join">
+        <div><h3>هل أنت خبير في أحد مساراتنا؟</h3><p>نرحّب بانضمام المدربين والمستشارين إلى شبكتنا. أرسل سيرتك الذاتية ومجالات تخصصك.</p></div>
+        <div style="display:grid;gap:8px;justify-items:start"><span class="mail"><i data-lucide="mail"></i><span class="ltr">hala@nuhal.ae</span></span><button class="copy-btn" data-copy="hala@nuhal.ae" style="color:var(--gold)"><i data-lucide="copy"></i> نسخ البريد</button></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== EXPERIENCE =================== -->
+<section class="page" data-page="experience">
+  <div class="phero">
+    <svg class="mark-bg" aria-hidden="true"><use href="#logo-mark"/></svg>
+    <div class="wrap">
+      <div><nav class="crumbs"><a href="#home" data-go="home">الرئيسية</a><i data-lucide="chevron-left"></i><span>الخبرات</span></nav>
+      <h1>خبرات تُقاس بما يتغيّر بعد البرنامج</h1>
+      <p>برامج منفّذة لجهات حكومية، وتقويم يمتد عبر خمس مدن، ومحفظة تخدم الحكومات والشركات والأفراد.</p></div>
+      <div class="side" id="expSide"></div>
+    </div>
+  </div>
+
+  <section class="section" id="case">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">من المشاريع المنفّذة</span><h2 class="h2">بلدية دبي: برنامجان لإدارة التسويق المؤسسي</h2></div></div>
+      <div class="case">
+        <div class="cside">
+          <svg aria-hidden="true" style="position:absolute;left:-30px;bottom:-40px;width:210px;opacity:.1"><use href="#logo-mark"/></svg>
+          <span class="leaf lg t-gold"><i data-lucide="building-2"></i></span>
+          <h3>بلدية دبي</h3>
+          <p>صمّمنا ونفّذنا برنامجين حضوريين في دبي لفريق إدارة التسويق المؤسسي، باللغة العربية مع المصطلحات الإنجليزية، ضمن مسار التسويق الحكومي والرقمي.</p>
+          <div class="kv"><div><b>2</b><span>برنامجان منفّذان</span></div><div><b>31</b><span>ساعة تدريبية</span></div><div><b>7</b><span>أيام تدريب</span></div><div><b>2026</b><span>سنة التنفيذ</span></div></div>
+        </div>
+        <div class="cmain">
+          <div class="prog">
+            <div class="top"><h4>الاحتراف المتقدم والابتكار في التسويق الحكومي</h4><span class="pill st-open">منفّذ</span></div>
+            <div class="meta"><span><i data-lucide="calendar-days"></i> 4 أيام × 4 ساعات</span><span><i data-lucide="map-pin"></i> حضوري، دبي</span><span><i data-lucide="languages"></i> عربي مع مصطلحات إنجليزية</span></div>
+            <p style="color:var(--muted);font-size:15px">برنامج استراتيجي يربط التسويق الحكومي بأهداف الجهة وتجربة المتعامل، ويقدّم أدوات الابتكار في الحملات والرسائل المؤسسية.</p>
+          </div>
+          <div class="prog">
+            <div class="top"><h4>تطوير الأداء المتقدم في التسويق الرقمي</h4><span class="pill st-open">منفّذ</span></div>
+            <div class="meta"><span><i data-lucide="calendar-days"></i> 3 أيام × 5 ساعات</span><span><i data-lucide="map-pin"></i> حضوري، دبي</span><span><i data-lucide="file-text"></i> مادة عربية بالكامل</span></div>
+            <div class="mods">
+              <div><small>اليوم الأول</small>الإعلانات الاجتماعية والقنوات والمحتوى</div>
+              <div><small>اليوم الثاني</small>تحسين الظهور في محركات البحث SEO وGEO</div>
+              <div><small>اليوم الثالث</small>الذكاء الاصطناعي في التسويق الرقمي</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-surface" id="footprint">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">الانتشار والتوزيع</span><h2 class="h2">أين ومتى تنعقد برامجنا</h2><p class="lead">أرقام محسوبة من تقويم برامج الربع الرابع 2026.</p></div></div>
+      <div class="charts">
+        <div class="chart"><h3>البرامج حسب المدينة</h3><p class="sub">عدد البرامج المجدولة في كل مدينة</p><div class="bars" id="chCity"></div></div>
+        <div class="chart"><h3>البرامج حسب المسار</h3><p class="sub">عدد البرامج في كل مسار تخصصي</p><div class="bars" id="chTrack"></div></div>
+        <div class="chart" style="grid-column:1/-1"><h3>الإيقاع الشهري</h3><p class="sub">عدد البرامج التي تبدأ في كل شهر</p><div class="months" id="chMonth"></div><div class="mlabels"><span>أكتوبر</span><span>نوفمبر</span><span>ديسمبر</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sectors">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="kicker">القطاعات</span><h2 class="h2">من نخدم</h2></div></div>
+      <div class="sectors">
+        <div class="sector"><span class="leaf t-ink"><i data-lucide="landmark"></i></span><h3>الجهات الحكومية</h3><p>قيادة، تحول رقمي، مالية حكومية، تجربة متعامل.</p></div>
+        <div class="sector"><span class="leaf t-leaf"><i data-lucide="building-2"></i></span><h3>الشركات</h3><p>إدارة، مبيعات، خدمة عملاء، مهارات تقنية.</p></div>
+        <div class="sector"><span class="leaf t-gold"><i data-lucide="briefcase"></i></span><h3>المهنيون</h3><p>تطوير وظيفي، لغات، أدوات رقمية.</p></div>
+        <div class="sector"><span class="leaf t-ink"><i data-lucide="graduation-cap"></i></span><h3>الطلاب</h3><p>دعم أكاديمي، تحضير للاختبارات، مهارات الدراسة.</p></div>
+        <div class="sector"><span class="leaf t-leaf"><i data-lucide="blocks"></i></span><h3>الأطفال</h3><p>STEM، التفكير الناقد، الفنون، بناء الثقة.</p></div>
+      </div>
+
+      <div class="sec-head" style="margin-top:72px"><div><span class="kicker">صيغ التنفيذ</span><h2 class="h2">ثلاث طرق لتقديم البرنامج</h2></div></div>
+      <div class="formats">
+        <div class="format"><span class="leaf t-leaf"><i data-lucide="map-pin"></i></span><h3>حضوري في دبي</h3><p>برامج في قاعاتنا المرخّصة في دبي، وهي النسبة الأكبر من تقويم هذا الربع.</p><div class="cities" id="fmtDubai"></div></div>
+        <div class="format"><span class="leaf t-gold"><i data-lucide="plane"></i></span><h3>برامج دولية</h3><p>برامج تجمع التدريب بالاطلاع على تجارب مؤسسية في وجهات خارج الدولة.</p><div class="cities" id="fmtIntl"></div></div>
+        <div class="format"><span class="leaf t-ink"><i data-lucide="settings-2"></i></span><h3>برامج مخصصة</h3><p>محتوى ومدة وموعد يُصمَّم لجهة واحدة حسب احتياجها وفي المكان الذي تختاره.</p><div class="cities"><span>حسب الطلب</span></div></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== CONTACT (all pages) =================== -->
+<section class="section on-surface contact" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="kicker">تواصل معنا</span>
+      <h2 class="h2">لنخطّط البرنامج القادم معاً</h2>
+      <p class="lead">أخبرنا باحتياج جهتك أو البرنامج الذي يهمك، وسيتواصل معك فريق علاقات العملاء خلال يوم عمل.</p>
+      <div class="cinfo">
+        <div class="cline"><span class="leaf sm t-leaf"><i data-lucide="mail"></i></span><div><small>البريد الإلكتروني</small><div class="two"><b class="ltr">hala@nuhal.ae</b><b class="ltr">nuha@nuhal.ae</b></div></div></div>
+        <div class="cline"><span class="leaf sm t-gold"><i data-lucide="phone"></i></span><div><small>الهاتف وواتساب</small><div class="two"><b class="ltr">+971 55 701 4016</b><b class="ltr">+971 50 849 5008</b></div></div></div>
+        <div class="cline"><span class="leaf sm t-ink"><i data-lucide="map-pin"></i></span><div><small>المقر</small><b>دبي، الإمارات العربية المتحدة</b></div></div>
+        <div class="cline"><span class="leaf sm t-leaf"><i data-lucide="globe"></i></span><div><small>الموقع</small><b class="ltr">www.nuhal.ae</b></div></div>
+      </div>
+    </div>
+    <div class="cform" id="cformBox">
+      <h3>طلب برنامج تدريبي</h3>
+      <p>املأ البيانات وسنجهّز لك طلباً مكتملاً لإرساله إلينا.</p>
+      <form class="form" id="cform" novalidate>
+        <label>الاسم الكامل <span class="req">*</span><input class="input" id="c-name" required autocomplete="name"></label>
+        <label>الجهة / الشركة <span class="req">*</span><input class="input" id="c-org" required autocomplete="organization"></label>
+        <label>البريد الإلكتروني <span class="req">*</span><input class="input" id="c-email" type="email" required autocomplete="email" dir="ltr"></label>
+        <label>رقم الهاتف <span class="req">*</span><input class="input" id="c-phone" type="tel" required autocomplete="tel" dir="ltr" placeholder="+971"></label>
+        <label>المجال المطلوب<select class="select" id="c-track" style="width:100%;flex:none"></select></label>
+        <label>عدد المشاركين المتوقع<input class="input" id="c-count" type="number" min="1" value="10"></label>
+        <label class="full">تفاصيل الاحتياج<textarea id="c-msg" placeholder="مثال: برنامج لثلاثة أيام لفريق التحول الرقمي، في دبي، خلال يناير"></textarea></label>
+        <div class="full form-actions"><button class="btn btn-primary" type="submit"><i data-lucide="send"></i> تجهيز الطلب</button><span class="form-note">الحقول المعلّمة بـ * مطلوبة</span></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <svg class="mark-bg" aria-hidden="true"><use href="#logo-mark"/></svg>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <svg class="flogo" role="img" aria-label="نُهال المعرفة"><use href="#logo-full"/></svg>
+        <p>مركز تدريب وتطوير في دبي، يصمّم برامج للقيادات والمؤسسات والأفراد، من الذكاء الاصطناعي إلى المالية الحكومية.</p>
+        <span class="khda-mini"><i data-lucide="badge-check"></i> مرخّص من هيئة المعرفة والتنمية البشرية KHDA</span>
+      </div>
+      <div><h4>الصفحات</h4><ul>
+        <li><a href="#home" data-go="home">الرئيسية</a></li><li><a href="#about" data-go="about">عن الشركة</a></li><li><a href="#programs" data-go="programs">البرامج التدريبية</a></li><li><a href="#accreditations" data-go="accreditations">الاعتمادات</a></li><li><a href="#team" data-go="team">الفريق</a></li><li><a href="#experience" data-go="experience">الخبرات</a></li></ul></div>
+      <div><h4>المسارات</h4><ul id="footTracks"></ul></div>
+      <div><h4>تواصل</h4><ul>
+        <li class="ltr">hala@nuhal.ae</li><li class="ltr">nuha@nuhal.ae</li><li class="ltr">+971 55 701 4016</li><li class="ltr">+971 50 849 5008</li><li>دبي، الإمارات العربية المتحدة</li></ul></div>
+    </div>
+    <div class="fbottom"><span>© 2026 نُهال المعرفة للتدريب والتطوير ذ.م.م. جميع الحقوق محفوظة.</span><span class="ltr">Nuhal Almarifa Training &amp; Development L.L.C · Dubai</span></div>
+  </div>
+</footer>
+
+<!-- Program modal -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="scrim" data-close-modal></div>
+  <div class="box">
+    <div class="mh"><button class="x" data-close-modal aria-label="إغلاق"><i data-lucide="x"></i></button><div id="mChip"></div><h3 id="mTitle"></h3></div>
+    <div class="mb">
+      <div class="facts" id="mFacts"></div>
+      <div class="inc"><span><i data-lucide="award"></i> شهادة إتمام من نُهال المعرفة</span><span><i data-lucide="clipboard-check"></i> تقييم قبلي وبعدي</span><span><i data-lucide="book-open"></i> مادة تدريبية للمشارك</span></div>
+      <div id="regWrap">
+        <h4 style="font-size:17px;margin-bottom:14px">طلب التسجيل</h4>
+        <form class="form" id="rform" novalidate>
+          <label>الاسم الكامل <span class="req">*</span><input class="input" id="r-name" required autocomplete="name"></label>
+          <label>الجهة <span class="req">*</span><input class="input" id="r-org" required autocomplete="organization"></label>
+          <label>البريد الإلكتروني <span class="req">*</span><input class="input" id="r-email" type="email" required dir="ltr" autocomplete="email"></label>
+          <label>رقم الهاتف <span class="req">*</span><input class="input" id="r-phone" type="tel" required dir="ltr" placeholder="+971" autocomplete="tel"></label>
+          <label>المسمى الوظيفي<input class="input" id="r-role" autocomplete="organization-title"></label>
+          <label>عدد المشاركين<input class="input" id="r-count" type="number" min="1" value="1"></label>
+          <div class="full form-actions"><button class="btn btn-primary" type="submit"><i data-lucide="send"></i> تجهيز طلب التسجيل</button><span class="form-note">نؤكد المقعد والرسوم بالبريد</span></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+<script>
+(function(){
+document.documentElement.lang='ar'; document.documentElement.dir='rtl';
+const ITEMS = %%ITEMS%%;
+const TRACKS = [
+ {n:'القيادة الحكومية والتميز المؤسسي', s:'القيادة والتميز المؤسسي', i:'landmark', t:'ink', d:'قيادة الفرق والتغيير وصناعة القرار وهندسة الأداء الحكومي.', tags:['القيادة 5.0','إدارة التغيير','هندسة الأداء']},
+ {n:'الذكاء الاصطناعي والتحول الرقمي الحكومي', s:'التحول الرقمي الحكومي', i:'cpu', t:'leaf', d:'الأتمتة وإعادة تصميم الخدمات وحوكمة الذكاء الاصطناعي والتحول الرقمي للموارد البشرية.', tags:['الأتمتة','خدمات 360°','HR رقمي']},
+ {n:'الابتكار وجودة الخدمات وتجربة المتعامل', s:'الابتكار وتجربة المتعامل', i:'lightbulb', t:'gold', d:'مختبرات الابتكار والتفكير التصميمي وقياس تجربة المتعامل والخدمات الاستباقية.', tags:['Design Thinking','رحلة المتعامل','الخدمات الاستباقية']},
+ {n:'البيانات والأمن السيبراني وإدارة المخاطر', s:'البيانات والأمن السيبراني', i:'shield-check', t:'ink', d:'حوكمة البيانات وذكاء الأعمال والأمن السيبراني وإدارة الأزمات الرقمية.', tags:['حوكمة البيانات','لوحات القيادة','محاكاة الأزمات']},
+ {n:'المهارات المستقبلية والإدارة الحكومية المتقدمة', s:'المهارات المستقبلية', i:'compass', t:'leaf', d:'مهارات 2030 والتواصل المؤثر والعرض التنفيذي والتفاوض وإدارة المشاريع.', tags:['Agile','العرض التنفيذي','التفاوض']},
+ {n:'الذكاء الاصطناعي الحكومي', s:'الذكاء الاصطناعي الحكومي', i:'brain-circuit', t:'gold', d:'من استخدام الأدوات إلى صناعة القيمة: هندسة الأوامر وCopilot والوكلاء الأذكياء والحوكمة والاستراتيجية.', tags:['Prompt Engineering','Copilot','Agentic AI','استراتيجية 2030']},
+ {n:'المالية والمحاسبة', s:'المالية والمحاسبة', i:'coins', t:'ink', d:'الموازنات والتدقيق والإيرادات والرقابة المالية باستخدام التحليلات والذكاء الاصطناعي.', tags:['الموازنات','التدقيق الذكي','الإيرادات']}
+];
+const AREAS = [
+ {n:'التطوير الإداري والقيادي', i:'briefcase', t:'ink', img:'area-admin', d:'القيادة والإدارة والتخطيط الاستراتيجي والموارد البشرية وإدارة المشاريع والتطوير المؤسسي، بأدوات عملية لرفع الأداء.', tags:['القيادة','التخطيط الاستراتيجي','إدارة المشاريع']},
+ {n:'الحاسوب وتقنية المعلومات', i:'monitor', t:'leaf', img:'area-it', d:'من المهارات الرقمية الأساسية إلى المتقدمة: Microsoft Office وGoogle Workspace والتصميم وتحليل البيانات وأساسيات البرمجة والأمن السيبراني.', tags:['Office','تحليل البيانات','التسويق الرقمي']},
+ {n:'تعليم اللغات', i:'languages', t:'gold', img:'area-lang', d:'الإنجليزية والعربية ولغات أخرى: التواصل العام، الإنجليزية للأعمال، التحضير لـ IELTS وTOEFL، والكتابة المهنية.', tags:['IELTS','TOEFL','Business English']},
+ {n:'الخدمات التعليمية', i:'book-open', t:'leaf', img:'area-edu', d:'دروس تقوية وإثراء المناهج وورش مهارات الدراسة والتحضير للاختبارات والاستشارات التعليمية، بمسارات تعلّم شخصية.', tags:['دروس التقوية','مهارات الدراسة','الاستشارات']},
+ {n:'المهارات المهنية والتقنية', i:'wrench', t:'ink', img:'area-tech', d:'الصحة والسلامة وتميّز خدمة العملاء والمهارات الشخصية ومهارات البيع، بما يتوافق مع احتياجات سوق العمل في الإمارات.', tags:['خدمة العملاء','الصحة والسلامة','المهارات الشخصية']},
+ {n:'تنمية مهارات الأطفال', i:'blocks', t:'gold', img:'area-kids', d:'برامج مناسبة للعمر في المهارات المعرفية والاجتماعية والإبداعية: STEM والفنون والتفكير الناقد وبناء الثقة.', tags:['STEM','التفكير الناقد','الفنون']}
+];
+const MONTHS={10:'أكتوبر',11:'نوفمبر',12:'ديسمبر'};
+const DAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const toneVar={ink:'var(--ink)',leaf:'var(--leaf)',gold:'var(--gold)'};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ic=n=>`<i data-lucide="${n}"></i>`;
+const icons=()=>{try{window.lucide&&lucide.createIcons({attrs:{'aria-hidden':'true'}})}catch(e){}};
+
+ITEMS.forEach((it,k)=>{it.id=k;it.start=new Date(2026,it.m-1,it.d1);it.end=new Date(2026,it.m-1,it.d2,23,59);});
+const now=new Date();
+const status=it=> now>it.end?'done':(now>=it.start?'live':'open');
+const ST={open:['st-open','متاح للتسجيل'],live:['st-live','قيد الانعقاد'],done:['st-done','منعقد']};
+const pill=it=>{const s=ST[status(it)];return `<span class="pill ${s[0]}">${s[1]}</span>`};
+const dateTxt=it=>`${it.d1}–${it.d2} ${MONTHS[it.m]} 2026`;
+const count=(arr,f)=>arr.reduce((m,x)=>(m[f(x)]=(m[f(x)]||0)+1,m),{});
+const byTrack=count(ITEMS,x=>x.tr), byCity=count(ITEMS,x=>x.c), byMonth=count(ITEMS,x=>x.m);
+const cities=Object.keys(byCity).sort((a,b)=>byCity[b]-byCity[a]);
+const sorted=[...ITEMS].sort((a,b)=>a.start-b.start||a.tr-b.tr);
+let upcoming=sorted.filter(x=>x.start>now);
+const fallback=!upcoming.length; if(fallback) upcoming=sorted.slice(-5);
+const next=upcoming[0];
+const aiCount=ITEMS.filter(x=>/الذكاء الاصطناعي|AI|Copilot|Prompt/.test(x.t)).length;
+const chip=tr=>`<span class="chip"><span class="leaf t-${TRACKS[tr].t}">${ic(TRACKS[tr].i)}</span>${esc(TRACKS[tr].s)}</span>`;
+
+/* ---- hero ticket & mega ticket ---- */
+$('#heroTicket').innerHTML=`<div class="row1"><span class="lab">${ic('calendar-clock')} ${fallback?'من تقويم الربع الرابع':'البرنامج القادم'}</span>${pill(next)}</div><b>${esc(next.t)}</b><div class="meta"><span>${ic('calendar-days')} ${dateTxt(next)}</span><span>${ic('map-pin')} ${esc(next.c)}</span></div><button class="btn btn-primary btn-sm" data-open="${next.id}" style="justify-self:start">التفاصيل والتسجيل ${ic('arrow-left')}</button>`;
+$('#megaTicket').innerHTML=`<span class="lab">${esc(TRACKS[next.tr].s)}</span><b>${esc(next.t)}</b><div class="meta"><span>${ic('calendar-days')} ${dateTxt(next)}</span><span>${ic('map-pin')} ${esc(next.c)}</span></div><button class="btn btn-line btn-sm" data-open="${next.id}" style="justify-self:start;color:#fff">التفاصيل ${ic('arrow-left')}</button>`;
+
+/* ---- stats ---- */
+$('#homeStats').innerHTML=[
+ [ITEMS.length,'برنامجاً في تقويم الربع الرابع 2026'],
+ [TRACKS.length,'مسارات تخصصية حكومية ومؤسسية'],
+ [cities.length,'مدن انعقاد بين دبي ووجهات دولية'],
+ [AREAS.length,'مجالات تدريب للأفراد والمؤسسات']
+].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+$('#aiCount').textContent=aiCount;
+
+/* ---- upcoming ledger ---- */
+$('#upcoming').innerHTML=upcoming.slice(0,5).map(it=>`<div class="lrow"><div class="dstamp"><b>${it.d1}–${it.d2}</b><span>${MONTHS[it.m]} · ${DAYS[it.start.getDay()]}</span></div><h3>${esc(it.t)}</h3>${chip(it.tr)}<span class="city">${ic('map-pin')} ${esc(it.c)}</span><div class="act"><button class="btn btn-line btn-sm" data-open="${it.id}">سجّل ${ic('arrow-left')}</button></div></div>`).join('');
+
+/* ---- tracks (home) ---- */
+const order=[5,0,1,2,3,4,6];
+$('#homeTracks').innerHTML=order.map((k,idx)=>{const T=TRACKS[k];const cs=[...new Set(ITEMS.filter(x=>x.tr===k).map(x=>x.c))];
+ if(idx===0) return `<a class="track feature" href="#programs" data-go="programs" data-filter="${k}" data-anchor="catalog"><svg class="mark-bg" aria-hidden="true"><use href="#logo-mark"/></svg><span class="leaf lg t-gold">${ic(T.i)}</span><h3>${esc(T.n)}</h3><p>${esc(T.d)}</p><div class="tags">${T.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="foot"><span><b>${byTrack[k]}</b> برنامجاً · ${cs.length} مدن</span><i data-lucide="arrow-left" class="go"></i></div></a>`;
+ return `<a class="track" href="#programs" data-go="programs" data-filter="${k}" data-anchor="catalog"><span class="leaf t-${T.t}">${ic(T.i)}</span><h3>${esc(T.n)}</h3><p>${esc(T.d)}</p><div class="foot"><span><b>${byTrack[k]}</b> برنامجاً</span><i data-lucide="arrow-left" class="go"></i></div></a>`}).join('');
+
+/* ---- mega menus & drawer & footer ---- */
+$('#megaTotal').textContent=ITEMS.length+' برنامجاً';
+$('#megaTracks').innerHTML=TRACKS.map((T,k)=>`<a class="mlink" href="#programs" data-go="programs" data-filter="${k}" data-anchor="catalog"><span class="leaf sm t-${T.t}">${ic(T.i)}</span><span><b>${esc(T.s)}</b><small>${byTrack[k]} برنامجاً · ${[...new Set(ITEMS.filter(x=>x.tr===k).map(x=>x.c))].join('، ')}</small></span></a>`).join('');
+$('#megaAreas').innerHTML=AREAS.map(A=>`<a class="mlink" href="#programs" data-go="programs" data-anchor="areas"><span class="leaf sm t-${A.t}">${ic(A.i)}</span><span><b>${esc(A.n)}</b><small>${esc(A.tags.join(' · '))}</small></span></a>`).join('');
+$('#drawerTracks').innerHTML=TRACKS.map((T,k)=>`<a href="#programs" data-go="programs" data-filter="${k}" data-anchor="catalog">${ic(T.i)} ${esc(T.s)}</a>`).join('')+`<a href="#programs" data-go="programs" data-anchor="areas">${ic('grid-2x2')} مجالات التدريب الستة</a>`;
+$('#footTracks').innerHTML=TRACKS.map((T,k)=>`<li><a href="#programs" data-go="programs" data-filter="${k}" data-anchor="catalog">${esc(T.s)}</a></li>`).join('');
+$('#megaFacts').innerHTML=[[2,'برنامجان منفّذان لبلدية دبي'],[cities.length,'مدن انعقاد في الربع الرابع'],[byCity['دبي']||0,'برنامجاً مجدولاً في دبي']].map(([n,l])=>`<div class="mfact"><b>${n}</b><span>${l}</span></div>`).join('');
+$('#c-track').innerHTML='<option value="">اختر المجال</option>'+TRACKS.map(T=>`<option>${esc(T.n)}</option>`).join('')+AREAS.map(A=>`<option>${esc(A.n)}</option>`).join('')+'<option>برنامج مخصص آخر</option>';
+
+/* ---- programs page ---- */
+$('#progSide').innerHTML=`<div><b>${ITEMS.length}</b><span>برنامجاً مجدولاً</span></div><div><b>${upcoming.length&&!fallback?upcoming.length:0}</b><span>متاح للتسجيل</span></div>`;
+$('#areas').innerHTML=AREAS.map(A=>`<article class="area"><div class="ph"><img src="img/${A.img}.jpg" alt="${esc(A.n)}" loading="lazy"></div><div class="bd"><span class="leaf t-${A.t}">${ic(A.i)}</span><h3>${esc(A.n)}</h3><p>${esc(A.d)}</p><div class="tags">${A.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div></div></article>`).join('');
+$('#fCity').innerHTML='<option value="">كل المدن</option>'+cities.map(c=>`<option value="${esc(c)}">${esc(c)} (${byCity[c]})</option>`).join('');
+const F={tr:-1,q:'',city:'',month:'',past:false};
+function renderChips(){
+ $('#trackChips').innerHTML=`<button class="fchip" data-tr="-1" aria-pressed="${F.tr===-1}">${ic('layout-grid')} كل المسارات <b>${ITEMS.length}</b></button>`+TRACKS.map((T,k)=>`<button class="fchip" data-tr="${k}" aria-pressed="${F.tr===k}">${ic(T.i)} ${esc(T.s)} <b>${byTrack[k]}</b></button>`).join('');
+}
+function renderCatalog(){
+ const q=F.q.trim();
+ let list=sorted.filter(x=>(F.tr<0||x.tr===F.tr)&&(!F.city||x.c===F.city)&&(!F.month||x.m==F.month)&&(!q||x.t.toLowerCase().includes(q.toLowerCase())));
+ const hiddenPast=F.past?0:list.filter(x=>status(x)==='done').length;
+ if(!F.past) list=list.filter(x=>status(x)!=='done');
+ $('#resultCount').innerHTML=`<b>${list.length}</b> برنامجاً مطابقاً`+(hiddenPast?` · ${hiddenPast} برنامجاً منعقداً مخفي`:'');
+ $('#pgrid').innerHTML=list.length?list.map(it=>{const T=TRACKS[it.tr];return `<article class="pcard ${status(it)==='done'?'done':''}" style="--tone:${toneVar[T.t]}"><div class="r1"><div class="dstamp"><b>${it.d1}–${it.d2}</b><span>${MONTHS[it.m]} 2026</span></div>${pill(it)}</div>${chip(it.tr)}<h3>${esc(it.t)}</h3><div class="r3"><span class="city">${ic('map-pin')} ${esc(it.c)}</span><button class="btn btn-line btn-sm" data-open="${it.id}">التفاصيل ${ic('arrow-left')}</button></div></article>`}).join(''):`<div class="empty" style="grid-column:1/-1">${ic('search-x')}<b style="color:var(--heading);font-family:var(--f-display)">لا توجد برامج مطابقة</b><span>جرّب مساراً أو مدينة أخرى، أو فعّل «إظهار البرامج المنعقدة».</span></div>`;
+ icons();
+}
+function setTrack(k){F.tr=k;renderChips();renderCatalog();}
+$('#trackChips').addEventListener('click',e=>{const b=e.target.closest('[data-tr]');if(b)setTrack(+b.dataset.tr)});
+$('#q').addEventListener('input',e=>{F.q=e.target.value;renderCatalog()});
+$('#fCity').addEventListener('change',e=>{F.city=e.target.value;renderCatalog()});
+$('#fMonth').addEventListener('change',e=>{F.month=e.target.value;renderCatalog()});
+$('#fPast').addEventListener('change',e=>{F.past=e.target.checked;renderCatalog()});
+$('#resetFilters').addEventListener('click',()=>{F.tr=-1;F.q='';F.city='';F.month='';F.past=false;$('#q').value='';$('#fCity').value='';$('#fMonth').value='';$('#fPast').checked=false;renderChips();renderCatalog()});
+
+/* ---- team faculty ---- */
+$('#faculty').innerHTML=TRACKS.map((T,k)=>`<div class="frow"><div class="who"><span class="leaf t-${T.t}">${ic(T.i)}</span><h3>خبراء ${esc(T.n)}</h3></div><div class="tags">${T.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="num"><b>${byTrack[k]}</b><span>برنامجاً يقودونها</span></div></div>`).join('');
+
+/* ---- experience charts ---- */
+$('#expSide').innerHTML=`<div><b>${ITEMS.length}</b><span>برنامجاً مجدولاً</span></div><div><b>${cities.length}</b><span>مدن</span></div><div><b>${TRACKS.length}</b><span>مسارات</span></div>`;
+const maxC=Math.max(...Object.values(byCity));
+$('#chCity').innerHTML=cities.map((c,k)=>`<div class="bar" style="--tone:${k===0?'var(--ink)':'var(--leaf)'}"><span class="lab">${ic('map-pin')} ${esc(c)}</span><span class="trk"><span class="fill" style="display:block;width:${byCity[c]/maxC*100}%"></span></span><span class="v">${byCity[c]}</span></div>`).join('');
+const maxT=Math.max(...Object.values(byTrack));
+$('#chTrack').innerHTML=TRACKS.map((T,k)=>({T,k})).sort((a,b)=>byTrack[b.k]-byTrack[a.k]).map(({T,k})=>`<div class="bar" style="--tone:${toneVar[T.t]}"><span class="lab" title="${esc(T.n)}">${esc(T.s)}</span><span class="trk"><span class="fill" style="display:block;width:${byTrack[k]/maxT*100}%"></span></span><span class="v">${byTrack[k]}</span></div>`).join('');
+const maxM=Math.max(...Object.values(byMonth));
+$('#chMonth').innerHTML=[10,11,12].map(m=>`<div class="mcol"><b>${byMonth[m]||0}</b><span class="col" style="height:${(byMonth[m]||0)/maxM*150}px"></span></div>`).join('');
+$('#fmtDubai').innerHTML=`<span>دبي · ${byCity['دبي']||0} برنامجاً</span>`;
+$('#fmtIntl').innerHTML=cities.filter(c=>c!=='دبي').map(c=>`<span>${esc(c)} · ${byCity[c]}</span>`).join('');
+
+/* ---- router ---- */
+const PAGES=['home','about','programs','accreditations','team','experience'];
+function show(page,anchor){
+ if(!PAGES.includes(page)) page='home';
+ $$('.page').forEach(p=>p.classList.toggle('show',p.dataset.page===page));
+ $$('[data-nav]').forEach(a=>a.classList.toggle('active',a.dataset.nav===page));
+ closeMegas(); closeDrawer();
+ const target=anchor&&document.getElementById(anchor);
+ requestAnimationFrame(()=>{ if(target){const y=target.getBoundingClientRect().top+scrollY-(anchor==='catalog'?70:96);scrollTo({top:y,behavior:'smooth'})} else scrollTo({top:0}) });
+ document.title=({home:'نُهال المعرفة للتدريب والتطوير',about:'عن الشركة · نُهال المعرفة',programs:'البرامج التدريبية · نُهال المعرفة',accreditations:'الاعتمادات · نُهال المعرفة',team:'الفريق · نُهال المعرفة',experience:'الخبرات · نُهال المعرفة'})[page];
+}
+function go(page,anchor){
+ const h='#'+page;
+ if(location.hash!==h){ pendingAnchor=anchor||null; location.hash=h; } else show(page,anchor);
+}
+let pendingAnchor=null;
+addEventListener('hashchange',()=>{show(location.hash.slice(1)||'home',pendingAnchor);pendingAnchor=null});
+document.addEventListener('click',e=>{
+ const a=e.target.closest('[data-go]');
+ if(a){e.preventDefault(); if(a.dataset.filter!==undefined){F.tr=+a.dataset.filter;F.past=false;$('#fPast').checked=false;renderChips();renderCatalog();} go(a.dataset.go,a.dataset.anchor);return;}
+ const c=e.target.closest('[data-contact]');
+ if(c){e.preventDefault();closeMegas();closeDrawer();const t=$('#contact');scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:'smooth'});setTimeout(()=>$('#c-name').focus({preventScroll:true}),600);return;}
+ const o=e.target.closest('[data-open]');
+ if(o){openModal(+o.dataset.open);return;}
+ const cp=e.target.closest('[data-copy]');
+ if(cp){copy(cp.dataset.copy);return;}
+});
+
+/* ---- mega menu behaviour ---- */
+let megaTimer;
+function closeMegas(){ $$('.mega').forEach(m=>m.classList.remove('open')); $$('[data-mega]').forEach(b=>b.setAttribute('aria-expanded','false')); }
+function openMega(id){ $$('.mega').forEach(m=>m.classList.toggle('open',m.id===id)); $$('[data-mega]').forEach(b=>b.setAttribute('aria-expanded',String(b.dataset.mega===id))); }
+$$('[data-mega]').forEach(b=>{
+ b.addEventListener('click',()=>{ b.getAttribute('aria-expanded')==='true'?closeMegas():openMega(b.dataset.mega); });
+ b.addEventListener('mouseenter',()=>{ if(matchMedia('(hover:hover)').matches){clearTimeout(megaTimer);openMega(b.dataset.mega);} });
+});
+$('#siteHeader').addEventListener('mouseleave',()=>{ if(matchMedia('(hover:hover)').matches) megaTimer=setTimeout(closeMegas,180); });
+$('#siteHeader').addEventListener('mouseenter',()=>clearTimeout(megaTimer));
+$$('.menu > li > a.top').forEach(a=>a.addEventListener('mouseenter',closeMegas));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){closeMegas();closeDrawer();closeModal();} });
+document.addEventListener('click',e=>{ if(!e.target.closest('#siteHeader')) closeMegas(); });
+
+/* ---- drawer ---- */
+const drawer=$('#drawer');
+function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');$('#burger').setAttribute('aria-expanded','false');}
+$('#burger').addEventListener('click',()=>{drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');$('#burger').setAttribute('aria-expanded','true');});
+$$('[data-close-drawer]').forEach(b=>b.addEventListener('click',closeDrawer));
+$$('.dacc > button').forEach(b=>b.addEventListener('click',()=>{const ex=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!ex));b.nextElementSibling.hidden=ex;}));
+
+/* ---- modal ---- */
+let current=null, lastFocus=null;
+function openModal(id){
+ const it=ITEMS[id]; current=it; lastFocus=document.activeElement;
+ const T=TRACKS[it.tr];
+ $('#mChip').innerHTML=`<span class="chip" style="color:#cfe2e3"><span class="leaf t-${T.t}" style="background:rgba(255,255,255,.1);color:var(--gold)">${ic(T.i)}</span>${esc(T.n)}</span> &nbsp; ${pill(it)}`;
+ $('#mTitle').textContent=it.t;
+ $('#mFacts').innerHTML=[['التاريخ',dateTxt(it)],['المدة',`${it.d2-it.d1+1} أيام · ${DAYS[it.start.getDay()]} – ${DAYS[it.end.getDay()]}`],['مكان الانعقاد',it.c],['المسار',T.s]].map(([a,b])=>`<div><small>${a}</small><b>${esc(b)}</b></div>`).join('');
+ const done=status(it)==='done';
+ $('#regWrap').innerHTML=done?`<div class="done-box"><h4>${ic('history')} انعقد هذا البرنامج</h4><p style="font-size:14.5px">يمكن تنفيذه مجدداً لجهتكم كبرنامج مخصص. أرسل لنا طلباً من نموذج التواصل.</p><button class="btn btn-primary btn-sm" data-contact data-close-modal style="justify-self:start">اطلب تنفيذه لجهتك ${ic('arrow-left')}</button></div>`:regFormHTML();
+ $('#modal').hidden=false; document.body.style.overflow='hidden'; icons();
+ setTimeout(()=>$('#modal .x').focus(),30);
+ const rf=$('#rform'); if(rf) rf.addEventListener('submit',onReg);
+}
+function regFormHTML(){return `<h4 style="font-size:17px;margin-bottom:14px">طلب التسجيل</h4><form class="form" id="rform" novalidate>
+ <label>الاسم الكامل <span class="req">*</span><input class="input" id="r-name" required autocomplete="name"></label>
+ <label>الجهة <span class="req">*</span><input class="input" id="r-org" required autocomplete="organization"></label>
+ <label>البريد الإلكتروني <span class="req">*</span><input class="input" id="r-email" type="email" required dir="ltr" autocomplete="email"></label>
+ <label>رقم الهاتف <span class="req">*</span><input class="input" id="r-phone" type="tel" required dir="ltr" placeholder="+971" autocomplete="tel"></label>
+ <label>المسمى الوظيفي<input class="input" id="r-role" autocomplete="organization-title"></label>
+ <label>عدد المشاركين<input class="input" id="r-count" type="number" min="1" value="1"></label>
+ <div class="full form-actions"><button class="btn btn-primary" type="submit">${ic('send')} تجهيز طلب التسجيل</button><span class="form-note">نؤكد المقعد والرسوم بالبريد</span></div></form>`}
+function closeModal(){ if($('#modal').hidden) return; $('#modal').hidden=true; document.body.style.overflow=''; lastFocus&&lastFocus.focus&&lastFocus.focus({preventScroll:true}); }
+$('#modal').addEventListener('click',e=>{ if(e.target.closest('[data-close-modal]')) closeModal(); });
+
+/* ---- forms ---- */
+function validate(form){
+ form.querySelectorAll('.err').forEach(x=>x.remove());
+ let ok=true, first=null;
+ form.querySelectorAll('[required]').forEach(inp=>{
+  const v=inp.value.trim(); let msg='';
+  if(!v) msg='هذا الحقل مطلوب';
+  else if(inp.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg='اكتب بريداً إلكترونياً صحيحاً، مثل name@company.ae';
+  else if(inp.type==='tel'&&v.replace(/\D/g,'').length<8) msg='اكتب رقم هاتف صحيحاً مع رمز الدولة';
+  if(msg){ok=false;first=first||inp;const s=document.createElement('span');s.className='err';s.textContent=msg;inp.after(s);inp.setAttribute('aria-invalid','true');} else inp.removeAttribute('aria-invalid');
+ });
+ if(first) first.focus();
+ return ok;
+}
+function doneBox(text,title){
+ return `<div class="done-box"><h4>${ic('check-circle')} ${title}</h4><p style="font-size:14.5px">انسخ الطلب وأرسله إلى أحد العناوين التالية، وسنؤكد لك الاستلام خلال يوم عمل.</p><textarea readonly id="reqText">${esc(text)}</textarea><div class="form-actions"><button class="btn btn-primary btn-sm" type="button" data-copy-req>${ic('copy')} نسخ الطلب</button><button class="btn btn-line btn-sm" type="button" data-edit>تعديل البيانات</button></div><div class="send-to"><span>${ic('mail')}<span class="ltr">hala@nuhal.ae</span></span><span>${ic('mail')}<span class="ltr">nuha@nuhal.ae</span></span><span>${ic('message-circle')}<span class="ltr">+971 55 701 4016</span></span></div></div>`;
+}
+function onReg(e){
+ e.preventDefault(); const f=e.target; if(!validate(f)) return;
+ const v=id=>($('#'+id)||{}).value||'';
+ const text=`طلب تسجيل في برنامج تدريبي\n\nالبرنامج: ${current.t}\nالمسار: ${TRACKS[current.tr].n}\nالتاريخ: ${dateTxt(current)}\nالمدينة: ${current.c}\n\nالاسم: ${v('r-name')}\nالجهة: ${v('r-org')}\nالمسمى الوظيفي: ${v('r-role')||'—'}\nالبريد: ${v('r-email')}\nالهاتف: ${v('r-phone')}\nعدد المشاركين: ${v('r-count')||1}`;
+ const saved=f.outerHTML, wrap=$('#regWrap'), vals=[...f.querySelectorAll('input')].map(i=>i.value);
+ wrap.innerHTML=doneBox(text,'طلب التسجيل جاهز'); icons();
+ wrap.querySelector('[data-edit]').onclick=()=>{wrap.innerHTML=regFormHTML();const nf=$('#rform');[...nf.querySelectorAll('input')].forEach((i,k)=>i.value=vals[k]);nf.addEventListener('submit',onReg);icons();};
+}
+function onContact(e){
+ e.preventDefault(); const f=e.target; if(!validate(f)) return;
+ const v=id=>$('#'+id).value.trim();
+ const text=`طلب برنامج تدريبي\n\nالاسم: ${v('c-name')}\nالجهة: ${v('c-org')}\nالبريد: ${v('c-email')}\nالهاتف: ${v('c-phone')}\nالمجال: ${v('c-track')||'—'}\nعدد المشاركين: ${v('c-count')||'—'}\n\nالتفاصيل:\n${v('c-msg')||'—'}`;
+ const box=$('#cformBox'); const keep=box.innerHTML; const vals=[...f.elements].map(x=>x.value);
+ box.innerHTML=`<h3>طلبك جاهز</h3>`+doneBox(text,'تم تجهيز الطلب'); icons();
+ box.querySelector('[data-edit]').onclick=()=>{box.innerHTML=keep;const nf=$('#cform');[...nf.elements].forEach((x,k)=>{if(vals[k]!==undefined)x.value=vals[k]});nf.addEventListener('submit',onContact);icons();};
+}
+$('#cform').addEventListener('submit',onContact);
+document.addEventListener('click',e=>{ if(e.target.closest('[data-copy-req]')){ copy($('#reqText').value,$('#reqText')); } });
+function copy(text,el){
+ const fallback=()=>{ if(el){el.focus();el.select();toast('حدّد النص واضغط نسخ');} else toast(text); };
+ try{ navigator.clipboard.writeText(text).then(()=>toast('تم النسخ'),fallback); }catch(err){ fallback(); }
+}
+let tt; function toast(m){const t=$('#toast');t.innerHTML=`${ic('check')} ${esc(m)}`;icons();t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+
+/* ---- boot ---- */
+renderChips(); renderCatalog();
+show(location.hash.slice(1)||'home');
+icons();
+if(!window.lucide){ addEventListener('load',icons); }
+})();
+</script>
