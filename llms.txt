@@ -34,3 +34,19 @@
 - [الخدمات التعليمية](https://www.nuhal.ae/courses/educational-services/): دروس التقوية وإثراء المناهج ومهارات الدراسة والتحضير للاختبارات والاستشارات التعليمية.
 - [المهارات المهنية والتقنية](https://www.nuhal.ae/courses/professional-skills/): الصحة والسلامة وخدمة العملاء والمهارات الشخصية والمبيعات، بما يتوافق مع سوق العمل في الإمارات.
 - [تنمية مهارات الأطفال](https://www.nuhal.ae/courses/kids/): STEM والفنون والتفكير الناقد وبناء الثقة، في بيئة آمنة ومناسبة للعمر.
+
+## English version
+- [Home](https://www.nuhal.ae/en/) · [About](https://www.nuhal.ae/en/about/) · [Government programs](https://www.nuhal.ae/en/programs/) · [Courses](https://www.nuhal.ae/en/courses/) · [Accreditation](https://www.nuhal.ae/en/accreditations/) · [Team](https://www.nuhal.ae/en/team/) · [Experience](https://www.nuhal.ae/en/experience/) · [Contact](https://www.nuhal.ae/en/contact/)
+- [Government Leadership & Institutional Excellence](https://www.nuhal.ae/en/programs/government-leadership/): 10 programs. Leading teams and change, smart decision-making and government performance engineering.
+- [AI & Government Digital Transformation](https://www.nuhal.ae/en/programs/digital-transformation/): 11 programs. Automation, service redesign, AI governance and HR digital transformation.
+- [Innovation, Service Quality & Customer Experience](https://www.nuhal.ae/en/programs/innovation-customer-experience/): 10 programs. Innovation labs, design thinking, customer experience measurement and proactive services.
+- [Data, Cybersecurity & Risk Management](https://www.nuhal.ae/en/programs/data-cybersecurity-risk/): 10 programs. Data governance, business intelligence, cybersecurity and digital crisis management.
+- [Future Skills & Advanced Government Management](https://www.nuhal.ae/en/programs/future-skills/): 11 programs. 2030 work skills, impactful communication, executive presentation, negotiation and project management.
+- [Government AI](https://www.nuhal.ae/en/programs/government-ai/): 13 programs. From using tools to creating value: prompt engineering, Copilot, AI agents, governance and strategy.
+- [Finance & Accounting](https://www.nuhal.ae/en/programs/finance-accounting/): 12 programs. Budgets, auditing, revenue and financial control with analytics and AI.
+- [Management & Leadership Development](https://www.nuhal.ae/en/courses/management-leadership/): Leadership, strategic planning, HR and project management, with practical tools to raise performance.
+- [Computer & IT Training](https://www.nuhal.ae/en/courses/computer-it/): Microsoft Office, Google Workspace, design, data analysis, programming basics and cybersecurity.
+- [Language Education](https://www.nuhal.ae/en/courses/languages/): General and business English, IELTS and TOEFL preparation, and professional writing.
+- [Educational Services](https://www.nuhal.ae/en/courses/educational-services/): Tutoring, curriculum enrichment, study skills, exam preparation and educational consulting.
+- [Professional & Technical Skills](https://www.nuhal.ae/en/courses/professional-skills/): Health and safety, customer service, soft skills and sales, aligned with the UAE job market.
+- [Children's Skills Development](https://www.nuhal.ae/en/courses/kids/): STEM, arts, critical thinking and confidence building, in a safe, age-appropriate setting.

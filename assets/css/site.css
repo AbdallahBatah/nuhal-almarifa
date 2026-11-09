@@ -702,6 +702,41 @@ a.frow{transition:background .15s}
 a.frow:hover{background:var(--surface)}
 a.frow:hover h3{color:var(--leaf)}
 .bar a.lab:hover{color:var(--leaf)}
+.hp{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;border:0!important;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);opacity:0}
+.topbar a.lang{color:var(--on-night);font-weight:600;border:1px solid rgba(255,255,255,.2);padding:2px 10px;border-radius:999px}
+.topbar a.lang:hover{border-color:var(--gold);color:var(--gold)}
+.wa-float{position:fixed;z-index:75;bottom:calc(20px + env(safe-area-inset-bottom,0px));inset-inline-end:max(20px,env(safe-area-inset-left,0px));display:inline-flex;align-items:center;gap:8px;background:#1F9D55;color:#fff;padding:12px 18px 12px 16px;border-radius:999px;font-family:var(--f-display);font-weight:600;font-size:14.5px;box-shadow:0 14px 30px -12px rgba(0,0,0,.45);transition:transform .2s,background .2s}
+.wa-float:hover{transform:translateY(-2px);background:#178347}
+.wa-float .lucide{font-size:20px}
+.sending{opacity:.7;pointer-events:none}
+.sent-box{border:1.5px solid var(--leaf);background:var(--leaf-soft);border-radius:6px;padding:22px;display:grid;gap:10px}
+.sent-box h4{font-size:18px;display:flex;gap:10px;align-items:center}
+/* ---------- LTR (English) mirror ---------- */
+[dir="ltr"] .media .b-gold{left:auto;right:0}
+[dir="ltr"] .media .b-leaf{right:auto;left:10%}
+[dir="ltr"] .media .photo{right:8%;left:0}
+[dir="ltr"] .media .arrow{right:auto;left:62%}
+[dir="ltr"] .ticket{left:auto;right:0}
+[dir="ltr"] .field .lucide{right:auto;left:14px}
+[dir="ltr"] .field .input{padding-right:14px;padding-left:42px}
+[dir="ltr"] .btn:hover .lucide.go,[dir="ltr"] .link-go:hover .lucide,[dir="ltr"] .track:hover .go,[dir="ltr"] .rel:hover .go{transform:translateX(4px)}
+[dir="ltr"] .lvl::before{right:auto;left:0;background:linear-gradient(90deg,color-mix(in srgb,var(--leaf) 14%,transparent),transparent)}
+[dir="ltr"] .modal .x{left:auto;right:16px}
+[dir="ltr"] .drawer .panel{right:auto;left:0}
+[dir="ltr"] .cert .note{left:auto;right:24px}
+[dir="ltr"] .framed{padding:0 22px 22px 0}
+[dir="ltr"] .framed::before{left:auto;right:0}
+[dir="ltr"] .framed .tag{right:auto;left:-12px}
+[dir="ltr"] .ai-media .frame{left:auto;right:-16px}
+[dir="ltr"] .ai-media .count{right:auto;left:-12px}
+[dir="ltr"] .phero .mark-bg,[dir="ltr"] footer.site .mark-bg{left:auto;right:-60px}
+[dir="ltr"] .track.feature .mark-bg{left:auto;right:-30px}
+[dir="ltr"] .bar .trk,[dir="ltr"] .bar .fill{border-radius:0 7px 7px 0}
+[dir="ltr"] .done-box textarea{direction:ltr}
+[dir="ltr"] .badge-line{padding:7px 14px 7px 8px}
+[dir="ltr"] .kicker,[dir="ltr"] .h2,[dir="ltr"] h1,[dir="ltr"] h2,[dir="ltr"] h3{letter-spacing:-.005em}
+[dir="ltr"] .hero h1{font-size:clamp(36px,5vw,60px)}
+@media (max-width:680px){[dir="ltr"] .framed .tag{left:0}[dir="ltr"] .ai-media .count{left:0}.wa-float span{display:none}.wa-float{padding:14px}}
 @media (max-width:1024px){
   .intro-grid,.two-col{grid-template-columns:1fr;gap:40px}
   .facts-card{position:static}
@@ -713,4 +748,6 @@ a.frow:hover h3{color:var(--leaf)}
   .related,.formats3,.topics,.topics.n7{grid-template-columns:1fr}
   .topics.n7 .topic:first-child{grid-column:auto}
   .fgrid{grid-template-columns:1fr}
+  .lrow{grid-template-columns:78px minmax(0,1fr)}
+  .lrow .act{grid-column:2;grid-row:4;align-self:start}
 }

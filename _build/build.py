@@ -4,6 +4,8 @@ import json, os, re, shutil, sys, datetime, html
 from PIL import Image
 sys.path.insert(0, os.path.dirname(__file__))
 from content import *
+FORM_TO, FORM_CC = EMAILS[0], EMAILS[1]  # FormSubmit recipients (first submission sends an activation email)
+WHATSAPP = PHONES_E164[0].lstrip("+")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -107,6 +109,41 @@ a.frow{transition:background .15s}
 a.frow:hover{background:var(--surface)}
 a.frow:hover h3{color:var(--leaf)}
 .bar a.lab:hover{color:var(--leaf)}
+.hp{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;border:0!important;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);opacity:0}
+.topbar a.lang{color:var(--on-night);font-weight:600;border:1px solid rgba(255,255,255,.2);padding:2px 10px;border-radius:999px}
+.topbar a.lang:hover{border-color:var(--gold);color:var(--gold)}
+.wa-float{position:fixed;z-index:75;bottom:calc(20px + env(safe-area-inset-bottom,0px));inset-inline-end:max(20px,env(safe-area-inset-left,0px));display:inline-flex;align-items:center;gap:8px;background:#1F9D55;color:#fff;padding:12px 18px 12px 16px;border-radius:999px;font-family:var(--f-display);font-weight:600;font-size:14.5px;box-shadow:0 14px 30px -12px rgba(0,0,0,.45);transition:transform .2s,background .2s}
+.wa-float:hover{transform:translateY(-2px);background:#178347}
+.wa-float .lucide{font-size:20px}
+.sending{opacity:.7;pointer-events:none}
+.sent-box{border:1.5px solid var(--leaf);background:var(--leaf-soft);border-radius:6px;padding:22px;display:grid;gap:10px}
+.sent-box h4{font-size:18px;display:flex;gap:10px;align-items:center}
+/* ---------- LTR (English) mirror ---------- */
+[dir="ltr"] .media .b-gold{left:auto;right:0}
+[dir="ltr"] .media .b-leaf{right:auto;left:10%}
+[dir="ltr"] .media .photo{right:8%;left:0}
+[dir="ltr"] .media .arrow{right:auto;left:62%}
+[dir="ltr"] .ticket{left:auto;right:0}
+[dir="ltr"] .field .lucide{right:auto;left:14px}
+[dir="ltr"] .field .input{padding-right:14px;padding-left:42px}
+[dir="ltr"] .btn:hover .lucide.go,[dir="ltr"] .link-go:hover .lucide,[dir="ltr"] .track:hover .go,[dir="ltr"] .rel:hover .go{transform:translateX(4px)}
+[dir="ltr"] .lvl::before{right:auto;left:0;background:linear-gradient(90deg,color-mix(in srgb,var(--leaf) 14%,transparent),transparent)}
+[dir="ltr"] .modal .x{left:auto;right:16px}
+[dir="ltr"] .drawer .panel{right:auto;left:0}
+[dir="ltr"] .cert .note{left:auto;right:24px}
+[dir="ltr"] .framed{padding:0 22px 22px 0}
+[dir="ltr"] .framed::before{left:auto;right:0}
+[dir="ltr"] .framed .tag{right:auto;left:-12px}
+[dir="ltr"] .ai-media .frame{left:auto;right:-16px}
+[dir="ltr"] .ai-media .count{right:auto;left:-12px}
+[dir="ltr"] .phero .mark-bg,[dir="ltr"] footer.site .mark-bg{left:auto;right:-60px}
+[dir="ltr"] .track.feature .mark-bg{left:auto;right:-30px}
+[dir="ltr"] .bar .trk,[dir="ltr"] .bar .fill{border-radius:0 7px 7px 0}
+[dir="ltr"] .done-box textarea{direction:ltr}
+[dir="ltr"] .badge-line{padding:7px 14px 7px 8px}
+[dir="ltr"] .kicker,[dir="ltr"] .h2,[dir="ltr"] h1,[dir="ltr"] h2,[dir="ltr"] h3{letter-spacing:-.005em}
+[dir="ltr"] .hero h1{font-size:clamp(36px,5vw,60px)}
+@media (max-width:680px){[dir="ltr"] .framed .tag{left:0}[dir="ltr"] .ai-media .count{left:0}.wa-float span{display:none}.wa-float{padding:14px}}
 @media (max-width:1024px){
   .intro-grid,.two-col{grid-template-columns:1fr;gap:40px}
   .facts-card{position:static}
@@ -118,6 +155,8 @@ a.frow:hover h3{color:var(--leaf)}
   .related,.formats3,.topics,.topics.n7{grid-template-columns:1fr}
   .topics.n7 .topic:first-child{grid-column:auto}
   .fgrid{grid-template-columns:1fr}
+  .lrow{grid-template-columns:78px minmax(0,1fr)}
+  .lrow .act{grid-column:2;grid-row:4;align-self:start}
 }
 """
 
@@ -215,7 +254,8 @@ def ticket_static(rel, cls):
             f'<div class="meta"><span>{ic("calendar-days")} {date_txt(it)}</span><span>{ic("map-pin")} {esc(it["c"])}</span></div>'
             f'<button class="btn btn-primary btn-sm" type="button" data-open="{it["id"]}" style="justify-self:start">التفاصيل والتسجيل {ic("arrow-left")}</button>')
 
-def header(rel, active):
+def header(rel, active, path=""):
+    en_link = rel + "en/" + (path if path != "404.html" else "")
     items = ""
     for key, label, path in NAV:
         cls = "top active" if key == active else "top"
@@ -232,7 +272,7 @@ def header(rel, active):
     return f'''
 <div class="topbar"><div class="wrap">
   <div class="grp"><span class="it">{ic("badge-check")} مرخّص من <b>هيئة المعرفة والتنمية البشرية KHDA</b></span><span class="it hide-sm">{ic("map-pin")} دبي، الإمارات العربية المتحدة</span></div>
-  <div class="grp"><span class="it hide-sm">{ic("phone")} <span class="ltr">{PHONES[0]}</span></span><span class="it">{ic("mail")} <span class="ltr">{EMAILS[0]}</span></span></div>
+  <div class="grp"><span class="it hide-sm">{ic("phone")} <span class="ltr">{PHONES[0]}</span></span><span class="it hide-sm">{ic("mail")} <span class="ltr">{EMAILS[0]}</span></span><a class="it lang" href="{en_link}" hreflang="en" lang="en">{ic("languages")} English</a></div>
 </div></div>
 <header class="site" id="siteHeader">
   <div class="wrap nav-row">
@@ -284,6 +324,7 @@ def header(rel, active):
     <a class="dlink" href="{href(rel, "accreditations/")}">الاعتمادات</a>
     <a class="dlink" href="{href(rel, "team/")}">الفريق</a>
     <a class="dlink" href="{href(rel, "experience/")}">الخبرات</a>
+    <a class="dlink" href="{en_link}" hreflang="en" lang="en">English</a>
     <a class="btn btn-primary" href="{href(rel, "contact/")}" style="margin-top:16px">تواصل معنا {ic("arrow-left", "go")}</a>
     <div style="margin-top:16px;font-size:14px;color:var(--muted);display:grid;gap:6px"><span class="ltr" style="justify-self:start">{PHONES[0]}</span><span class="ltr" style="justify-self:start">{EMAILS[0]}</span></div>
   </nav>
@@ -331,10 +372,12 @@ def page(path, active, title, desc, body, ld=None, og_img="og", og_type="website
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="{canonical}">
 <link rel="alternate" hreflang="ar-AE" href="{canonical}">
+<link rel="alternate" hreflang="en-AE" href="{SITE}en/{path}">
 <link rel="alternate" hreflang="x-default" href="{canonical}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{BRAND_FULL}">
 <meta property="og:locale" content="ar_AE">
+<meta property="og:locale:alternate" content="en_AE">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canonical}">
@@ -358,12 +401,13 @@ def page(path, active, title, desc, body, ld=None, og_img="og", og_type="website
 <body data-rel="{rel}" data-page="{active}">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo-full" viewBox="40 46 654 350">{LOGO_FULL}</symbol><symbol id="logo-mark" viewBox="44 50 280 297">{LOGO_MARK}</symbol></svg>
 <a class="sr" href="#main">تخطَّ إلى المحتوى</a>
-{header(rel, active)}
+{header(rel, active, path)}
 <main id="main">
 {body.replace("{REL}", rel)}
 </main>
 {footer(rel)}
 {MODAL}
+{whatsapp_btn("ar")}
 <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js" defer></script>
 <script src="{rel}assets/js/site.js" defer></script>
 </body>
@@ -375,6 +419,12 @@ def page(path, active, title, desc, body, ld=None, og_img="og", og_type="website
     PAGES.append(dict(path=path, title=title, desc=desc, h1=re.search(r"<h1[^>]*>(.*?)</h1>", doc, re.S).group(1)))
 
 PAGES = []
+def whatsapp_btn(lang):
+    label = "تواصل عبر واتساب" if lang == "ar" else "Chat on WhatsApp"
+    msg = "مرحباً، أرغب بالاستفسار عن برامج نُهال المعرفة التدريبية" if lang == "ar" else "Hello, I would like to ask about Nuhal Almarifa training programs"
+    from urllib.parse import quote
+    return f'<a class="wa-float" href="https://wa.me/{WHATSAPP}?text={quote(msg)}" target="_blank" rel="noopener" aria-label="{label}">{ic("message-circle")}<span>{"واتساب" if lang == "ar" else "WhatsApp"}</span></a>'
+
 SHARED_FAQ_CERT = ("هل يحصل المشارك على شهادة؟", "يحصل كل مشارك يستوفي متطلبات الحضور والتقييم على شهادة إتمام من نُهال المعرفة، المركز المرخّص من هيئة المعرفة والتنمية البشرية في دبي (KHDA)، تحمل اسم البرنامج وعدد ساعاته وتاريخ انعقاده.")
 
 # ------------------------------------------------------------------ section builders
@@ -923,7 +973,7 @@ def build_contact():
       <div class="cline"><span class="leaf sm t-ink">{ic("map-pin")}</span><div><small>المقر</small><b>دبي، الإمارات العربية المتحدة</b></div></div>
       <div class="cline"><span class="leaf sm t-leaf">{ic("globe")}</span><div><small>الموقع</small><b class="ltr">www.nuhal.ae</b></div></div>
     </div></div>
-  <div class="cform" id="cformBox"><h3>طلب برنامج أو دورة تدريبية</h3><p>املأ البيانات وسنجهّز لك طلباً مكتملاً لإرساله إلينا.</p>
+  <div class="cform" id="cformBox"><h3>طلب برنامج أو دورة تدريبية</h3><p>املأ البيانات وسيصلنا طلبك مباشرة.</p>
     <form class="form" id="cform" novalidate>
       <label>الاسم الكامل <span class="req">*</span><input class="input" id="c-name" required autocomplete="name"></label>
       <label>الجهة / الشركة <span class="req">*</span><input class="input" id="c-org" required autocomplete="organization"></label>
@@ -931,8 +981,9 @@ def build_contact():
       <label>رقم الهاتف <span class="req">*</span><input class="input" id="c-phone" type="tel" required autocomplete="tel" dir="ltr" placeholder="+971"></label>
       <label>المجال المطلوب<select class="select" id="c-track" style="width:100%;flex:none"><option value="">اختر المجال</option>{opts}<option>برنامج مخصص آخر</option></select></label>
       <label>عدد المشاركين المتوقع<input class="input" id="c-count" type="number" min="1" value="10"></label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label class="full">تفاصيل الاحتياج<textarea id="c-msg" placeholder="مثال: برنامج لثلاثة أيام لفريق التحول الرقمي، في دبي، خلال يناير"></textarea></label>
-      <div class="full form-actions"><button class="btn btn-primary" type="submit">{ic("send")} تجهيز الطلب</button><span class="form-note">الحقول المعلّمة بـ * مطلوبة</span></div>
+      <div class="full form-actions"><button class="btn btn-primary" type="submit">{ic("send")} إرسال الطلب</button><span class="form-note">الحقول المعلّمة بـ * مطلوبة</span></div>
     </form></div>
 </div></section>
 <section class="section"><div class="wrap two-col">
@@ -969,21 +1020,29 @@ def write_assets():
     shutil.copy(os.path.join(here, "og.jpg"), os.path.join(OUT, "assets", "og.jpg"))
     mark = LOGO_MARK.replace("var(--lt)", "#4A9698").replace("var(--lg)", "#DDAE4A")
     open(os.path.join(OUT, "assets", "favicon.svg"), "w").write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="44 50 280 297">{mark}</svg>\n')
-    data = {"items": [{k: it[k] for k in ("t", "tr", "m", "d1", "d2", "c")} for it in ITEMS],
-            "tracks": [{"n": T["n"], "s": T["s"], "i": T["i"], "t": T["t"], "slug": T["slug"]} for T in TRACKS],
-            "emails": EMAILS, "phones": PHONES}
+    import content_en as CE
+    data = {"items": [dict({k: it[k] for k in ("t", "tr", "m", "d1", "d2", "c")}, te=CE.TITLES_EN[it["id"]]) for it in ITEMS],
+            "tracks": [{"n": T["n"], "s": T["s"], "ne": CE.TRACKS_EN[k]["n"], "se": CE.TRACKS_EN[k]["s"], "i": T["i"], "t": T["t"], "slug": T["slug"]} for k, T in enumerate(TRACKS)],
+            "cityEn": CE.CITY_EN, "emails": EMAILS, "phones": PHONES, "formTo": FORM_TO, "formCc": FORM_CC}
     js = open(os.path.join(here, "site.js")).read().replace("/*DATA*/null", json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     open(os.path.join(OUT, "assets", "js", "site.js"), "w").write(js)
 
 def write_seo_files():
     prio = lambda p: "1.0" if p == "" else ("0.9" if p in ("programs/", "courses/") else ("0.8" if p.count("/") == 2 else "0.7"))
-    urls = "".join(f"  <url><loc>{SITE}{p['path']}</loc><lastmod>{BUILD_DATE.isoformat()}</lastmod><priority>{prio(p['path'])}</priority></url>\n" for p in PAGES)
-    open(os.path.join(OUT, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
+    def entry(loc, ar, en, pr):
+        return (f"  <url><loc>{loc}</loc><lastmod>{BUILD_DATE.isoformat()}</lastmod><priority>{pr}</priority>"
+                f'<xhtml:link rel="alternate" hreflang="ar-AE" href="{ar}"/><xhtml:link rel="alternate" hreflang="en-AE" href="{en}"/><xhtml:link rel="alternate" hreflang="x-default" href="{ar}"/></url>\n')
+    urls = "".join(entry(SITE + p["path"], SITE + p["path"], SITE + "en/" + p["path"], prio(p["path"])) for p in PAGES)
+    urls += "".join(entry(SITE + p["path"], SITE + p["path"][3:], SITE + p["path"], prio(p["path"][3:])) for p in PAGES_EN)
+    open(os.path.join(OUT, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}</urlset>\n')
     open(os.path.join(OUT, "robots.txt"), "w").write(
         "User-agent: *\nAllow: /\n\n# AI search and answer engines are welcome\nUser-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\nUser-agent: PerplexityBot\nAllow: /\nUser-agent: Google-Extended\nAllow: /\n\n"
         f"Sitemap: {SITE}sitemap.xml\n")
     tl = "\n".join(f"- [{T['n']}]({SITE}programs/{T['slug']}/): {len(by_track[k])} برنامجاً في {'، '.join(cities_of(k))}. {T['card']}" for k, T in enumerate(TRACKS))
     al = "\n".join(f"- [{A['n']}]({SITE}courses/{A['slug']}/): {A['card']}" for A in AREAS)
+    import content_en as CE
+    tle = "\n".join(f"- [{CE.TRACKS_EN[k]['n']}]({SITE}en/programs/{T['slug']}/): {len(by_track[k])} programs. {CE.TRACKS_EN[k]['card']}" for k, T in enumerate(TRACKS))
+    ale = "\n".join(f"- [{CE.AREAS_EN[k]['n']}]({SITE}en/courses/{A['slug']}/): {CE.AREAS_EN[k]['card']}" for k, A in enumerate(AREAS))
     open(os.path.join(OUT, "llms.txt"), "w").write(f"""# {BRAND_FULL} ({LEGAL_EN})
 
 > مركز تدريب وتطوير في دبي، الإمارات العربية المتحدة، مرخّص من هيئة المعرفة والتنمية البشرية (KHDA). يقدّم برامج تدريبية للجهات الحكومية والشركات والأفراد، ودورات في الإدارة والحاسوب واللغات والمهارات المهنية وبرامج الأطفال.
@@ -1009,6 +1068,11 @@ def write_seo_files():
 
 ## مجالات الدورات
 {al}
+
+## English version
+- [Home]({SITE}en/) · [About]({SITE}en/about/) · [Government programs]({SITE}en/programs/) · [Courses]({SITE}en/courses/) · [Accreditation]({SITE}en/accreditations/) · [Team]({SITE}en/team/) · [Experience]({SITE}en/experience/) · [Contact]({SITE}en/contact/)
+{tle}
+{ale}
 """)
 
 def main():
@@ -1023,10 +1087,13 @@ def main():
     build_courses_hub()
     for k in range(len(AREAS)): build_area(k)
     build_accreditations(); build_team(); build_experience(); build_contact(); build_404()
+    import build_en
+    global PAGES_EN
+    PAGES_EN = build_en.run(sys.modules[__name__])
     write_seo_files()
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
-    print(f"built {len(PAGES)} indexable pages into {OUT}")
-    for p in PAGES: print(f"{len(p['title']):3d} {len(p['desc']):3d}  /{p['path']:42s} {p['title']}")
+    print(f"built {len(PAGES)} Arabic + {len(PAGES_EN)} English indexable pages into {OUT}")
+    for p in PAGES + PAGES_EN: print(f"{len(p['title']):3d} {len(p['desc']):3d}  /{p['path']:42s} {p['title']}")
 
 if __name__ == "__main__":
     main()
