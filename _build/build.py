@@ -40,7 +40,7 @@ def ar_join(lst): return "، ".join(lst[:-1]) + " و" + lst[-1] if len(lst) > 1 
 
 IMG_SIZES = {}
 for f in os.listdir(os.path.join(SRC, "img")):
-    IMG_SIZES[f[:-4]] = Image.open(os.path.join(SRC, "site", "img", f)).size
+    IMG_SIZES[f[:-4]] = Image.open(os.path.join(SRC, "img", f)).size
 
 LOGO_FULL = open(os.path.join(SRC, "logo_full.txt")).read()
 LOGO_MARK = open(os.path.join(SRC, "logo_mark.txt")).read()
@@ -963,7 +963,7 @@ def write_assets():
     os.makedirs(os.path.join(OUT, "assets", "img"), exist_ok=True)
     open(os.path.join(OUT, "assets", "css", "site.css"), "w").write(BASE_CSS.strip() + "\n" + EXTRA_CSS)
     for f in os.listdir(os.path.join(SRC, "img")):
-        shutil.copy(os.path.join(SRC, "site", "img", f), os.path.join(OUT, "assets", "img", f))
+        shutil.copy(os.path.join(SRC, "img", f), os.path.join(OUT, "assets", "img", f))
     here = os.path.dirname(os.path.abspath(__file__))
     shutil.copy(os.path.join(here, "logo.png"), os.path.join(OUT, "assets", "logo.png"))
     shutil.copy(os.path.join(here, "og.jpg"), os.path.join(OUT, "assets", "og.jpg"))
